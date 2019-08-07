@@ -25,7 +25,7 @@ SECRET_KEY = '@#4d^+!8_jo0%)lnie-9tz%9$!ob)hxk9zll%&68w^!wru1rg2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'uni.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'uni',
+        'USER': 'uni',
+        'PASSWORD': os.getenv('DB_PASS', 'pass'),
+        'HOST': os.getenv('DB_HOST', '127.0.0.1'),
+        'PORT': '5432',
     }
 }
 

@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 
+from .views import index_view
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^uni/', include('core.urls'))
+    url(r'^index$', index_view)
 ]
