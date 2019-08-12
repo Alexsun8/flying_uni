@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import Course, Location
-
+from .models import Course, Location, President
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('name', 'status', 'location')
+    list_display = ('name', 'status', 'location', 'group_president', 'date', 'information')
+    list_filter = ('name', 'status', 'location', 'group_president', 'date')
 
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Location)
+admin.site.register(President)
