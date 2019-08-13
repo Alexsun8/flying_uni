@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 
-from .views import home_view, index_view
+from .views import home_view, index_view, idea_view
 
 urlpatterns = [
     url(r'^index$', index_view),
-    url(r'^home$', home_view)
+    url(r'^home$', home_view),
+    url(r'^idea$', idea_view)
 ]

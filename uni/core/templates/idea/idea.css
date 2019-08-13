@@ -18,13 +18,10 @@
 */
 
 body, html {
-    font-family: 'Philosopher', sans-serif;
-    font-size: large;
+   font-family: 'Anonymous Pro', monospace;
     color: #1405f2;
-    background-image: url("images/back1.jpeg");
-background-repeat:no-repeat;
-     border-left: 600px;
-     border-right: 600px;
+  /*  background-image: url("images/back1.jpeg");
+background-repeat:no-repeat;*/
 }
 
 /*Ð½Ð°ÑÑÑÐ¾Ð¹ÐºÐ¸ Ð¿Ð°Ð½ÐµÐ»Ð¸ Ð½Ð°Ð²Ð¸Ð³Ð°ÑÐ¸Ð¸Ð± Ð¿Ð¾Ð»Ð¾ÑÐ¸ ÑÐ²ÐµÑÑÑ*/
@@ -89,11 +86,19 @@ background-color:#007bff!important
       border-right: 0;
 }
 
-
+.up{
+    min-width: 1000px;
+    height: 100%;
+    background: #9cf7ff url("449536844575203.jpg.svg");
+}
 
  .desk{
      /* Цвет фона */
-     background: #fc3 url(images/desk_back.jpeg);
+
+
+     margin-left: 120px;
+     margin-right: 120px;
+     background: #fc3 ;
      border: 10px solid rgba(90, 2, 12, 0.79);  /* Параметры рамки */
     padding: 20px; /* Поля вокруг текста */
      color: darkmagenta;

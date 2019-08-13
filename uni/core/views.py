@@ -14,3 +14,9 @@ def home_view(request):
     courses = Course.objects.all()
     # if request.method == 'POST':
     return render(request, 'home.html', context={"courses": courses})
+
+
+def idea_view(request):
+    courses = Course.objects.all()
+    # if request.method == 'POST':
+    return render(request, 'idea/idea.html', context={"courses": courses})
