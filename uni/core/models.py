@@ -38,12 +38,15 @@ class Course(models.Model):
 
     #)
 
+    # TYPE_CHOICES = ()
+
     status = models.CharField(choices=STATUS_CHOICES, max_length=16)
     location = models.ForeignKey(Location, on_delete=models.PROTECT, blank=True, null=True)
     group_president = models.ForeignKey(President, on_delete=models.PROTECT, blank=True, null=True)
     date = models.DateField(help_text="Дата подвешивания курса", blank=True,null=True)
     information = models.TextField(max_length=1000, help_text="Краткая информация о курсе", blank = True, null = True)
    # type =
+    #level =
 
     def __str__(self):
         return f"{self.name} - {self.status}"

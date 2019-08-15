@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from core.models import Course
-
+from django.shortcuts import render_to_response
 
 # Create your views here.
 
@@ -19,4 +19,4 @@ def home_view(request):
 def idea_view(request):
     courses = Course.objects.all()
     # if request.method == 'POST':
-    return render(request, 'idea/idea.html', context={"courses": courses})
+    return render(request, 'idea/idea.html', {'main': 'home'})

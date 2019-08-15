@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700|Arsenal:400,700|Caveat:400,700|Gabriela|IBM+Plex+Mono:400,500,600,700|Neucha|Philosopher:400,700|Poiret+One&display=swap&subset=cyrillic,cyrillic-ext,latin-ext');
+
 /*
 
     font-family: 'Caveat', cursive;
@@ -19,19 +20,23 @@
 
 body, html {
     font-family: 'Philosopher', sans-serif;
-    font-size: large;
-    color: #1405f2;
-    background-image: url("images/back1.jpeg");
-background-repeat:no-repeat;
-     border-left: 600px;
-     border-right: 600px;
+    font-size: 98%;
+    color: #f28be8;
+      background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ /*   background-image: url("https://d.7fon.org/Perfect_highlands_%D0%BF%D0%B5%D0%B9%D0%B7%D0%B0%D0%B6.jpg?x1=0&y1=83&x2=728&y2=493&code=a03a6c5427b2a76822942a958dfb2684&width=2560&height=1440&hd=img");
+    background-repeat: no-repeat;
+    border-left: 600px;
+    border-right: 600px;*/
 }
 
-/*Ð½Ð°ÑÑÑÐ¾Ð¹ÐºÐ¸ Ð¿Ð°Ð½ÐµÐ»Ð¸ Ð½Ð°Ð²Ð¸Ð³Ð°ÑÐ¸Ð¸Ð± Ð¿Ð¾Ð»Ð¾ÑÐ¸ ÑÐ²ÐµÑÑÑ*/
-
+/*ÃÂ½ÃÂ°ÃÂÃÂÃÂÃÂ¾ÃÂ¹ÃÂºÃÂ¸ ÃÂ¿ÃÂ°ÃÂ½ÃÂµÃÂ»ÃÂ¸ ÃÂ½ÃÂ°ÃÂ²ÃÂ¸ÃÂ³ÃÂ°ÃÂÃÂ¸ÃÂ¸ÃÂ± ÃÂ¿ÃÂ¾ÃÂ»ÃÂ¾ÃÂÃÂ¸ ÃÂÃÂ²ÃÂµÃÂÃÂÃÂ*/
+/*
 .navbar {
     font-family: 'Caveat', cursive;
-    background: #F97300;
+    background: transparent !important;
+        font-size: 100%;
 }
 
 .nav-link, .navbar-brand {
@@ -41,6 +46,7 @@ background-repeat:no-repeat;
 
 .nav-link {
     margin-right: 1em !important;
+        font-size: 100%;
 }
 
 .nav-link:hover {
@@ -57,49 +63,59 @@ background-repeat:no-repeat;
     background: #fff !important;
 }
 
-.bg-primary{
-background-color:#007bff!important
+*/
+.bg-primary {
+    background-color: #007bff !important
 }
 
 
-
-.header{
+.header {
     font-weight: bold;
-    font-size: large;
     color: #0029f2;
+        font-size: 150%;
 }
 
 
-.h1{
-    font-size: larger;
+.h1 {
+      font-size: 300%;
 }
 
- /* CSS only to highlight col-* */
- .row>div{
-      background-clip: content-box;
+.h3 {
+         font-size: 200%;
+}
+/* CSS only to highlight col-* */
+.row > div {
+    background-clip: content-box;
 }
 
- .container {
+.container {
     /*  border: 1px dotted #ccc;*/
 }
 
- .row {
-      /*border: 1px dotted #ccc;*/
-      border-left: 0;
-      border-right: 0;
+.row {
+    /*border: 1px dotted #ccc;*/
+    border-left: 0;
+    border-right: 0;
 }
 
 
+.desk {
+    /* Ð¦Ð²ÐµÑ ÑÐ¾Ð½Ð° */
 
- .desk{
-     /* Цвет фона */
-     background: #fc3 url(images/desk_back.jpeg);
-     border: 10px solid rgba(90, 2, 12, 0.79);  /* Параметры рамки */
-    padding: 20px; /* Поля вокруг текста */
-     color: darkmagenta;
- }
+    margin-left: 120px;
+    margin-right: 120px;
+    border: 10px solid rgba(90, 2, 12, 0.79); /* ÐÐ°ÑÐ°Ð¼ÐµÑÑÑ ÑÐ°Ð¼ÐºÐ¸ */
+    padding: 20px; /* ÐÐ¾Ð»Ñ Ð²Ð¾ÐºÑÑÐ³ ÑÐµÐºÑÑÐ° */
+    color: darkmagenta;
+      font-size: 100%;
+    background: #fc3 url("https://img4.goodfon.ru/original/1920x1080/b/25/tekstura-derevo-goluboi-belyi-fon-texture-wood-light-blue-wh.jpg");
+     -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+}
 
- .column-1 {
+.column-1 {
     width: 6.86666666667%;
 }
 
@@ -169,6 +185,34 @@ background-color:#007bff!important
     .column + .column {
         margin-left: 0;
     }
+    .desk {
+    /* Ð¦Ð²ÐµÑ ÑÐ¾Ð½Ð° */
+
+    margin-left: 120px;
+    margin-right: 120px;
+    border: 10px solid rgba(90, 2, 12, 0.79); /* ÐÐ°ÑÐ°Ð¼ÐµÑÑÑ ÑÐ°Ð¼ÐºÐ¸ */
+    padding: 20px; /* ÐÐ¾Ð»Ñ Ð²Ð¾ÐºÑÑÐ³ ÑÐµÐºÑÑÐ° */
+    color: darkmagenta;
+      font-size: 100%;
+    background: #fc3 url("https://img4.goodfon.ru/original/1920x1080/b/25/tekstura-derevo-goluboi-belyi-fon-texture-wood-light-blue-wh.jpg");
+         -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+}
+    body, html {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 98%;
+    color: #f28be8;
+      background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ /*   background-image: url("https://d.7fon.org/Perfect_highlands_%D0%BF%D0%B5%D0%B9%D0%B7%D0%B0%D0%B6.jpg?x1=0&y1=83&x2=728&y2=493&code=a03a6c5427b2a76822942a958dfb2684&width=2560&height=1440&hd=img");
+    background-repeat: no-repeat;
+    border-left: 600px;
+    border-right: 600px;*/
+}
+
 }
 
 .sidebar-nav {
