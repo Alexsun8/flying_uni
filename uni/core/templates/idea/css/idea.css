@@ -65,24 +65,8 @@ margin-top: 300px;
 .name{
 margin-top: 300px;
 }
-/*
-.top-nav-collapse {
-  background-color: #fff5b5 !important;
-        font-family: 'Caveat', cursive;
-}
-
-.navbar:not(.top-nav-collapse) {
-  background: transparent !important;
-     font-family: 'Caveat', cursive;
-    font-size: 100%;
-}*/
 
 @media (max-width: 991px) {
- /* .navbar:not(.top-nav-collapse) {
-    background: #fff5b5 !important;
-       font-family: 'Caveat', cursive;
-    font-size: 100%;
-}*/
 
 .h1 {
   letter-spacing: 8px;
@@ -106,44 +90,7 @@ position: absolute;
 }
 
 
-/*ÃÂ½ÃÂ°ÃÂÃÂÃÂÃÂ¾ÃÂ¹ÃÂºÃÂ¸ ÃÂ¿ÃÂ°ÃÂ½ÃÂµÃÂ»ÃÂ¸ ÃÂ½ÃÂ°ÃÂ²ÃÂ¸ÃÂ³ÃÂ°ÃÂÃÂ¸ÃÂ¸ÃÂ± ÃÂ¿ÃÂ¾ÃÂ»ÃÂ¾ÃÂÃÂ¸ ÃÂÃÂ²ÃÂµÃÂÃÂÃÂ*/
-/*
-.navbar {
-    font-family: 'Caveat', cursive;
-    background: #F97300;
-}
 
-.nav-link, .navbar-brand {
-    color: #f4f4f4;
-    cursor: pointer;
-}
-
-.nav-link {
-    margin-right: 1em !important;
-}
-
-.nav-link:hover {
-    background: #f4f4f4;
-    color: #f97300;
-}
-
-
-.navbar-collapse {
-    justify-content: flex-end;
-}
-
-.navbar-toggler {
-    background: #fff !important;
-}
-
-.bg-primary{
-background-color:#007bff!important
-}
-
-*/
-
-
- /* CSS only to highlight col-* */
  .row>div{
       background-clip: content-box;
 }
@@ -157,13 +104,7 @@ background-color:#007bff!important
       border-left: 0;
       border-right: 0;
 }
-/*
-.up{
-    min-width: 1000px;
-    height: 100%;
-    background: #9cf7ff url("449536844575203.jpg.svg");
-}
-*/
+
  .desk{
      /* Ð¦Ð²ÐµÑ ÑÐ¾Ð½Ð° */
 

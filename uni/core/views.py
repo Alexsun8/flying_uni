@@ -13,7 +13,7 @@ def index_view(request):
 def home_view(request):
     courses = Course.objects.all()
     # if request.method == 'POST':
-    return render(request, 'home.html', context={"courses": courses})
+    return render(request, 'home.html', {'main': 'idea'})
 
 
 def idea_view(request):
