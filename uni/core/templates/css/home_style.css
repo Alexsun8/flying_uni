@@ -97,7 +97,12 @@ body, html {
     border-left: 0;
     border-right: 0;
 }
-
+   .navbar:not(.top-nav-collapse) {
+            background: transparent !important;
+            font-family: 'Caveat', cursive;
+                        color: rgba(209,39,219,0.67);
+            font-size: 100%;
+        }
 
 .desk {
     /* Ð¦Ð²ÐµÑ ÑÐ¾Ð½Ð° */

@@ -1,22 +1,24 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-from core.models import Course
-from django.shortcuts import render_to_response
+from .models import Course, News
 
-# Create your views here.
+
+# Cre   ate your views here.
+
 
 def index_view(request):
     courses = Course.objects.all()
     # if request.method == 'POST':
-    return render(request, 'index.html', context={"courses": courses})
-
-
-def home_view(request):
-    courses = Course.objects.all()
-    # if request.method == 'POST':
-    return render(request, 'home.html', {'main': 'idea'})
+    return render(request, 'index.html', {'main': 'home'})
 
 
 def idea_view(request):
     courses = Course.objects.all()
     # if request.method == 'POST':
     return render(request, 'idea/idea.html', {'main': 'home'})
+
+
+def home_view(request):
+    news = News.objects.all()
+    {'main': 'idea'}
+    return render(request, 'home.html',  locals())

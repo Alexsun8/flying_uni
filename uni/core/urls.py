@@ -22,5 +22,7 @@ from .views import home_view, index_view, idea_view
 urlpatterns = [
     url(r'^index$', index_view),
     url(r'^home$', home_view),
-    url(r'^idea$', idea_view)
+    url(r'^idea$', idea_view),
+    url(r'^login/?$','django.contrib.auth.views.login',{'template_name':'login.html'})
 ]
+

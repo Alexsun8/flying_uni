@@ -16,7 +16,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
     {% block css_file %}{% endblock %}
-    <title>{% block title %}Flying university{% endblock %}</title>
+    {% block title %}<title>Flying university</title>{% endblock %}
     <link href="https://fonts.googleapis.com/css?family=Philosopher&display=swap" rel="stylesheet">
 
     {% block script_js %}
@@ -42,14 +42,22 @@
 </main>
 <!--Main Layout-->
 
-
-<footer class = "foo">
+<div id="foo">
     <style type="text/css">
-        .foo {
-            background: rgba(25, 17, 71, 0.89);
+        #foo {
+            position: fixed; /* Фиксированное положение */
+            left: 0;
+            bottom: 0; /* Левый нижний угол */
+            background: rgba(138, 169, 242, 0.89);
             font-family: 'Caveat', cursive;
-            color: rgba(112,118,149,0.89);
-            font-size: 150%;
+            color: rgb(10, 72, 245);
+            font-size: 200%;
+            width: 100%; /* Ширина слоя */
+        }
+
+        #foo div {
+            padding: 10px; /* Поля вокруг текста */
+            background: rgba(138, 169, 242, 0.89); /* Цвет фона */
         }
     </style>
     <div class="row">
@@ -59,12 +67,11 @@
         <div class="col-md-3 text-center">
             сообщество волонтеров подвесного
         </div>
-        <div class="col-md-3 text-center" >
+        <div class="col-md-3 text-center">
             контакты: +7-xxx-xxx-xx-xx
         </div>
     </div>
-</footer>
-
+</div>
 
 </body>
 </html>

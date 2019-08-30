@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Course, Location, President
+from .models import Course, Location, President, News
+
 
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('name', 'status', 'location', 'group_president', 'date', 'information')
@@ -9,3 +10,4 @@ class CourseAdmin(admin.ModelAdmin):
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Location)
 admin.site.register(President)
+admin.site.register(News)

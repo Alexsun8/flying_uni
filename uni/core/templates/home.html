@@ -1,83 +1,75 @@
 {% extends "base.html" %}
 
-{% block css_file %}    <link rel="stylesheet" type="text/css" media="all" href="css/home_style.css">{% endblock %}
+{% block css_file %}
+    <link rel="stylesheet" type="text/css" media="all" href="core/templates/css/home_style.css">
+       <style type="text/css"> body {background-image: url('https://kipmu.ru/wp-content/uploads/pnbglb.jpg'); background-size: cover; background-position: center center;}
+
+    </style>
+{% endblock %}
 {% block title %}    <title>Flying university</title>{% endblock %}
-{% block script_js %}    <script type="text/javascript" src='home.js'></script>{% endblock %}
+{% block script_js %}
+    <script type="text/javascript" src='home.js'></script>{% endblock %}
 
-   {% block nav %} {% include "nav.html" %}{% endblock %}
+{% block nav %} {% include "nav.html" %}{% endblock %}
 
-{%block up %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="column-2">Запцщенных курсов</div>
-    </div>
-    <div class="row">
-        <!--  <div class="col-4"></div>-->
-        <div class="column-2">участвует в прокте человек</div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1>Подвесной университет</h1>
+
+
+{% block up %}
+    <div class="container-fluid">   
+        <div class="row">
+            <div class="column-2">Запцщенных курсов</div>
+        </div>
+        <div class="row">
+            <!--  <div class="col-4"></div>-->
+            <div class="column-2">участвует в прокте человек</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Подвесной университет</h1>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block content_main %}
-<section class=" desk">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="column-4">курсы</div>
-            <div class="column-4">контакты</div>
-            <div class="column-4">идея</div>
+    <section class=" desk">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="column-4">курсы</div>
+                <div class="column-4">контакты</div>
+                <div class="column-4">идея</div>
+            </div>
         </div>
-    </div>
 
-    <div class="container-fluid">
-        <div id="sammary" class="row">
-            <div class="column-8">
-                <div style="text-align: center;">
-                    <h3>Новости</h3>
-                    <text><p>идёт набор ректората и волонтеров</p>
-                        <p>Наши свободы больше не стоят ломаного гроша</p>
-                        <p> Все что мы можем — бегать по кругу, в спины друг другу дыша</p>
-                        <p> Время гламурных людоедов — прямо здесь и сейчас.</p>
-                        <p>Будь осторожен. Чувствую кожей, кто-то из нас...</p>
-                        <p>
-                        </p>
-                        <p> Кто-то из нас двоих</p>
-                        <p>Точно сошёл с ума</p>
-                        <p>
-
-                        </p>
-                        <p> Осталось лишь определить</p>
-                        <p> Весь мир или я.</p>
-                        <p>
-
-                        </p>
-                        <p> Наши свободы больше не стоят ломаного гроша</p>
-                        <p> Скачут лошадки, бьют пулеметы, и — привет мальчишам.</p>
-                        <p> Старые трюки, всё без обмана, не упусти свой шанс</p>
-                        <p> Ловкие руки, ставки гуманны, но кто-то из нас...</p>
+        <div class="container-fluid">
+            <div id="sammary" class="row">
+                <div class="column-8" style="text-align: center;">
+                    <h3 style="text-align: center;">Новости</h3>
+                    <text>
+                        {% for new in news %}
+                            <h4>{{ new.headline }}</h4>
+                            <h6>{{ new.message }}</h6>
+                            <h8>{{ new.date }}</h8>
+                        {% endfor %}
                     </text>
+
+                </div>
+                <div class="colum-2">
+
+
+                </div>
+                <div class="colum-2" style="text-align: left;">
+                    <ul class="sidebar-nav">
+
+                        <li><h3>Объявления</h3></li>
+                        <li><a> </a></li>
+                        <li><a href="">All books</a></li>
+                        <li><a href="">All authors</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="colum-2">
-
-
-            </div>
-            <div class="colum-2" style="text-align: left;">
-                <ul class="sidebar-nav">
-
-                    <li><h3>Объявления</h3></li>
-                    <li><a> </a></li>
-                    <li><a href="">All books</a></li>
-                    <li><a href="">All authors</a></li>
-                </ul>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 {% endblock %}
 
