@@ -1,6 +1,9 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.db import models
 from django.forms import forms
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Location(models.Model):
@@ -62,7 +65,8 @@ class Course(models.Model):
 
 
 class News(models.Model):
-    headline = models.CharField(max_length=100,help_text="Заголовок", verbose_name="Основная суть, объявление",default="Внимание!")
+    headline = models.CharField(max_length=100, help_text="Заголовок", verbose_name="Основная суть, объявление",
+                                default="Внимание!")
     date = models.DateField(auto_now=True, help_text="Время объявления")
     message = models.TextField(max_length=5000, help_text="Сама новость", blank=True, null=True)
 
@@ -70,6 +74,24 @@ class News(models.Model):
         return self.headline
 
 
-class MyAuthenticationForm(AuthenticationForm):
-    # add your form widget here
-    widget = forms.TextInput(attrs={'placeholder': 'username'})
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank=True)
+    want_study_courses = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True,
+                                           help_text="Курсы, которые Вы хотите изучать")
+    already_studing = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True,
+                                        help_text="Курсы, которые Вы уже изучаете")
+    can_teach = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True,
+                                  help_text="Курсы, которые Вы можете преподавать")
+    already_teaching = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True,
+                                         help_text="Курсы, которые Вы уже преподаёте")
+    birth_date = models.DateField(null=True, blank=True)
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
