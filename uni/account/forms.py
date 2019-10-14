@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.forms import forms
 from django.forms import ModelForm
 
-from uni.core.models import Profile
+from core.models import Profile
 
 
 class UserForm(ModelForm):
@@ -14,4 +14,4 @@ class UserForm(ModelForm):
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ('url', 'bio', 'want_study_courses', 'already_studing', 'can_teach', 'already_teaching', 'birth_date')
+        fields = ('bio', 'wishes', 'studying', 'knowledge', 'teaching', 'birth_date', 'photo')
