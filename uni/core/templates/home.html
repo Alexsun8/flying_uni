@@ -1,28 +1,23 @@
 {% extends "base.html" %}
 
 {% block css_file %}
-    <link rel="stylesheet" type="text/css" media="all" href="core/templates/css/home_style.css">
+    {% load static %}
+{#<img src="{% static "my_app/example.jpg" %}" alt="My image">#}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static "css/home.css" %}">
        <style type="text/css"> body {background-image: url('https://kipmu.ru/wp-content/uploads/pnbglb.jpg'); background-size: cover; background-position: center center;}
 
     </style>
 {% endblock %}
 {% block title %}    <title>Flying university</title>{% endblock %}
 {% block script_js %}
-    <script type="text/javascript" src='home.js'></script>{% endblock %}
+    <script type="text/javascript" src='/uni/core/static/js/home.js'></script>{% endblock %}
 
 {% block nav %} {% include "nav.html" %}{% endblock %}
 
 
 
 {% block up %}
-    <div class="container-fluid">   
-        <div class="row">
-            <div class="column-2">Запцщенных курсов</div>
-        </div>
-        <div class="row">
-            <!--  <div class="col-4"></div>-->
-            <div class="column-2">участвует в прокте человек</div>
-        </div>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 text-center">
                 <h1>Подвесной университет</h1>
@@ -33,13 +28,13 @@
 
 {% block content_main %}
     <section class=" desk">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="column-4">курсы</div>
-                <div class="column-4">контакты</div>
-                <div class="column-4">идея</div>
-            </div>
-        </div>
+{#        <div class="container-fluid">#}
+{#            <div class="row">#}
+{#                <div class="column-4">курсы</div>#}
+{#                <div class="column-4">контакты</div>#}
+{#                <div class="column-4">идея</div>#}
+{#            </div>#}
+{#        </div>#}
 
         <div class="container-fluid">
             <div id="sammary" class="row">
@@ -60,8 +55,7 @@
                 </div>
                 <div class="colum-2" style="text-align: left;">
                     <ul class="sidebar-nav">
-
-                        <li><h3>Объявления</h3></li>
+                        <h3>Объявления</h3>
                         <li><a> </a></li>
                         <li><a href="">All books</a></li>
                         <li><a href="">All authors</a></li>

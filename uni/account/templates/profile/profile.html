@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" media="all" href="profile.css">
+
+    <title>Flying university</title>
+</head>
+
+<header>
+    {% include "nav.html" %}
+</header>
+
+  <div class="avatar">{{ profile.photo }}</div>
+    <h1>{{profile.user.username}}</h1>
+
+
+<div class="container">
+		
+		<ul class="social">
+
+			<li class="facebook"><a href="#" class="entypo-facebook"></a></li>
+			<li class="twitter"><a href="#" class="entypo-twitter"></a></li>
+       <li class="sociali"><a href="#" class="entypo-mouse"></a></li>
+			<li class="codepen"><a href="#" class="entypo-code"></a></li>
+			<li class="mail"><a href="#" class="entypo-mail"></a></li>
+
+		</ul>
+
+	</div>
+
+</html>

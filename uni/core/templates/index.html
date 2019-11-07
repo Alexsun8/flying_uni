@@ -1,62 +1,107 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% block css_file %}
 
-    <title>Hello, world!</title>
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" media="all" href="/uni/core/templates/css/index.css">
+{#<style type="text/css"> body,head {#}
+{#    background-image: linear-gradient(45deg, rgba(103, 0, 31, .8), rgba(34, 101, 163, .5)), url(https://html5book.ru/wp-content/uploads/2016/12/photo-8.jpg);#}
+{#    background-size: cover;#}
+{#    background-position: center center;#}
+{#    background-repeat: no-repeat;#}
+{#}#}
+{#    </style>#}
+{% endblock %}
+{% block script_js %}{% endblock %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
-            <h1>Курсы</h1>
-
-            <table border="1" class="table table-dark">
-                <thead>
-                <tr>
-                    <th scope="col">Название</th>
-                    <th scope="col">Статус</th>
-                    <th scope="col">Место</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for course in courses %}
-                <tr>
-                    <td>{{ course.name }}</td>
-                    <td>{{ course.status }}</td>
-                    <td>{{ course.location }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-
-            </table>
-
+{% block up %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center" style="font-family: 'Philosopher', sans-serif; margin-top: 7%">
+                <h1>Cписок всех курсов</h1>
+            </div>
         </div>
-        <div class="col-2"></div>
     </div>
+{% endblock %}
 
+{% block content_main %}
+    <table>
+        <thead>
+        <tr>
+            <th>Название курса
+            <th>Статус
+                {#      <th>Тип курса#}
+                {#      <th>Длительность#}
+            <th>Дата подвешивания
+        </thead>
+        <tbody>
+        {% for course in courses %}
+            {% if course.status == "done" %}
+                <tr>
+                    <td>{{ course.name }}
+                    <td>{{ course.status }}
+                        {#              <td>{{course.}}  тип курса#}
+                        {#              <td>{{course.}}  длительность предполагаемая#}
+                    <td>{{ course.date }}
+                        {% else %}
+                <tr class="disabled">
+                <td>{{ course.name }}
+                <td>{{ course.status }}
+                    {#              <td>{{course.}}  тип курса#}
+                    {#              <td>{{course.}}  длительность предполагаемая#}
+                <td> ---
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
 
-</div>
+{% block foo %}{% endblock %}
 
+{#<body>#}
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+{#<div class="container">#}
+{#    <div class="row">#}
+{#        <div class="col-2"></div>#}
+{#        <div class="col-10">#}
+{#            <h1>Курсы</h1>#}
+{##}
+{#            <table border="1" class="table table-dark">#}
+{#                <thead>#}
+{#                <tr>#}
+{#                    <th scope="col">Название</th>#}
+{#                    <th scope="col">Статус</th>#}
+{#                    <th scope="col">Место</th>#}
+{#                </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                {% for course in courses %}#}
+{#                <tr>#}
+{#                    <td>{{ course.name }}</td>#}
+{#                    <td>{{ course.status }}</td>#}
+{#                    <td>{{ course.location }}</td>#}
+{#                </tr>#}
+{#                {% endfor %}#}
+{#                </tbody>#}
+{##}
+{#            </table>#}
+{##}
+{#        </div>#}
+{#        <div class="col-2"></div>#}
+{#    </div>#}
+{##}
+{##}
+{#</div>#}
+{##}
+{##}
+{#<!-- Optional JavaScript -->#}
+{#<!-- jQuery first, then Popper.js, then Bootstrap JS -->#}
+{#<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"#}
+{#        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"#}
+{#        crossorigin="anonymous"></script>#}
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"#}
+{#        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"#}
+{#        crossorigin="anonymous"></script>#}
+{#<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"#}
+{#        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"#}
+{#        crossorigin="anonymous"></script>#}
+{#</body>#}

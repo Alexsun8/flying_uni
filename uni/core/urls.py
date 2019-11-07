@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 
-from .views import home_view, index_view, idea_view
+from core.views import home_view, index_view, idea_view
 
 urlpatterns = [
-    url(r'^index$', index_view),
-    url(r'^home$', home_view),
-    url(r'^idea$', idea_view)
-]
+    url(r'^index$', index_view, name = "index"),
+    url(r'^home$', home_view, name = "home"),
+    url(r'^idea$', idea_view, name = "idea")
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

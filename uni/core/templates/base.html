@@ -42,13 +42,15 @@
 </main>
 <!--Main Layout-->
 
+{% block foo %}
 <div id="foo">
     <style type="text/css">
         #foo {
             position: fixed; /* Фиксированное положение */
             left: 0;
             bottom: 0; /* Левый нижний угол */
-            background: rgba(138, 169, 242, 0.89);
+            {#background: rgba(138, 169, 242, 0.89);#}
+            background:  rgba(34, 101, 163, .5);
             font-family: 'Caveat', cursive;
             color: rgb(10, 72, 245);
             font-size: 100%;
@@ -57,7 +59,7 @@
 
         #foo div {
             padding: 10px; /* Поля вокруг текста */
-            background: rgba(138, 169, 242, 0.89); /* Цвет фона */
+            {#background:rgba(34, 101, 163, .5); /* Цвет фона */#}
         }
     </style>
     <div class="row">
@@ -72,7 +74,7 @@
         </div>
     </div>
 </div>
-
+{% endblock %}
 </body>
 </html>
 

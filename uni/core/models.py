@@ -1,9 +1,10 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.db import models
 from django.forms import forms
-from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+# from django.contrib.auth.models import AbstractUser
+
 
 
 class Location(models.Model):
@@ -73,23 +74,7 @@ class News(models.Model):
     def __str__(self):
         return self.headline
 
-class Profile(models.Model):
-    class Meta:
-        # делает уникальным направление обмена
-        unique_together = ("wishes", "studying", "knowledge", "teaching")
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=500, blank=True)
-    wishes = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True,
-                                           help_text="Курсы, которые Вы хотите изучать", related_name="Profile_wishes")
-    studying = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True,
-                                        help_text="Курсы, которые Вы уже изучаете", related_name="Profile_studying")
-    knowledge = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True,
-                                  help_text="Курсы, которые Вы можете преподавать", related_name="Profile_knowledge")
-    teaching = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True,
-                                         help_text="Курсы, которые Вы уже преподаёте", related_name="Profile_teaching")
-    birth_date = models.DateField(null=True, blank=True)
-    photo = models.ImageField(upload_to='users/%Y/%m/%d', blank=True)
 
 #    @receiver(post_save, sender=User)
  ##   def create_user_profile(sender, instance, created, **kwargs):
@@ -100,5 +85,6 @@ class Profile(models.Model):
   #  def save_user_profile(sender, instance, **kwargs):
  #       instance.profile.save()
 #
-    def __str__(self):
-        return 'Profile for user {}'.format(self.user.username)
+    # def __str__(self):
+    #     return 'Profile for user {}'.format(self.user.username)
+

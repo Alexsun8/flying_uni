@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block css_file %}
+    <link rel="stylesheet" type="text/css" media="all" href="uni/core/templates/idea/css/idea.css">{% endblock %}
+{% block title %} <title>Flying university</title>{% endblock %}
+
+{% block script_js %}
+    <script type="text/javascript" src='idea.js'></script>{% endblock %}
+
+
+{% block content_head %}
+    <div class="view"
+         style="background-image: url('https://cdn.pixabay.com/photo/2018/06/27/15/41/mountains-3501888_960_720.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light align-items-center">
+            <!-- Content -->
+            <div class="container">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12 mb-4 white-text text-center">
+                        <div class="name">
+                            <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown"
+                                data-wow-delay="0.3s"><strong>Подвесной университет</strong></h1>
+                            <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+                            <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Знания
+                                всем и даром, и пусть никто не уйдёт обиженный</strong></h5>
+                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" data-value="contact" href="{% url 'sign_up' %}">Присоединиться к проекту</a>
+{#                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" >Присоединиться к проекту</a>#}
+
+                            <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" data-value="contact"
+                               href="{% url 'index' %}">Список курсов</a>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Content -->
+        </div>
+        <!-- Mask & flexbox options-->
+    </div>
+    <!-- Full Page Intro -->
+{% endblock %}
+
+{% block content_main %}
+    <div class="container">
+        <!--Grid row-->
+        <div class="row py-5">
+            <!--Grid column-->
+            <div class="col-md-12 text-center">
+                <p>Подвесной университет на данный момент строется в Москве и уже функционирует в Питере, хоть и
+                    не
+                    совсем так, как планировалось изначально. Основная его идея- бесплатная возможность получить
+                    знания,
+                    опыт в интересующей тебя области.
+                    Расскажу примерно, как он функционирует , чтобы стало понятно что это такое.
+                    Человек проходит анкетирование в самом начале, когда хочет присоединиться к проекту.
+                    Анкета состоит из 2 разделов: первый - список занятий, предметов, которые люди хотели бы
+                    выучить,
+                    научиться делать(например, играть на скрипке, выращивать кактусы, варить кофе в турке)
+                    второй раздел - то, что люди способны преподавать, или хотя бы в чём разбираются(в каждом
+                    разделе
+                    ещё есть разделения определённые, но это пока что не особо важно)
+                    Далее ректор, можно сказаьб организатор, подвешивает, запускает курс, накоторый набрались люди.
+                    Допустим, многие захотели научиться выращивать кактусы.Ректор всех желающих собирает, например,
+                    в
+                    беседе в вк. Находит старосту курса,который будет в последствии регулировать нормальную работу
+                    курса, подсказывать новичкам,брать решения проблем на себя, находит препода и место проведения.
+                    По сути, это абсолютно бесплатная система образования, доступная каждому и подстраивающаяся под
+                    твои
+                    же цели</p>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+{% endblock %}
+
+
+
+
