@@ -3,21 +3,22 @@
 {% block css_file %}
     {% load static %}
 {#<img src="{% static "my_app/example.jpg" %}" alt="My image">#}
-    <link rel="stylesheet" type="text/css" media="all" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static "css/home_style.css" %}">
        <style type="text/css"> body {background-image: url('https://kipmu.ru/wp-content/uploads/pnbglb.jpg'); background-size: cover; background-position: center center;}
 
     </style>
 {% endblock %}
 {% block title %}    <title>Flying university</title>{% endblock %}
 {% block script_js %}
-    <script type="text/javascript" src='/uni/core/static/js/home.js'></script>{% endblock %}
+        {% load static %}
+    <script type="text/javascript" src=' {% static "js/home.js" %}'></script>{% endblock %}
 
 {% block nav %} {% include "nav.html" %}{% endblock %}
 
 
 
 {% block up %}
-    <div class="container-fluid">
+    <div class="container-fluid-head">
         <div class="row">
             <div class="col-md-12 text-center">
                 <h1>Подвесной университет</h1>

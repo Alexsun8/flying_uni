@@ -1,20 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-    <style type="text/css" >
+    <style type="text/css">
         .top-nav-collapse {
             background-color: #fff5b5 !important;
             font-family: 'Caveat', cursive;
             color: rgba(209, 39, 219, 0.67);
+            {#margin-right: 2%;#}
+            {#margin-left: 2%;#}
         }
 
         .navbar:not(.top-nav-collapse) {
             background: transparent !important;
             font-family: 'Caveat', cursive;
-            color: rgba(209,39,219,0.67);
+            color: rgba(209, 39, 219, 0.67);
             font-size: 160%;
+            {#margin-right: 2%;#}
+            {#margin-left: 2%;#}
         }
     </style>
     <div class="container">
-        <a class="navbar-brand" href="{% url 'index'%}"><strong>
+        <a class="navbar-brand" href="{% url 'index' %}"><strong>
             Количество запущенных курсов:
             {{ count }}</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
@@ -24,31 +28,31 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home'%}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'idea'%}">Idea</a>
+                    <a class="nav-link" href="{% url 'idea' %}">Idea</a>
                 </li>
                 <li class="nav-item">
-{#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
-{#                     <a class="nav-link" href="#" >{{log}}</a>#}
+                    {#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
+                    {#                     <a class="nav-link" href="#" >{{log}}</a>#}
                 </li>
             </ul>
             <form class="form-inline">
                 <div class="md-form my-0">
                     <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'sign_up' %}">Sign up</a>
-                </li>
-                <li class="nav-item">
-{#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
-{#                     <a class="nav-link" href="#" >{{log}}</a>#}
-                </li>
-            </ul>
-{#                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">#}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'sign_up' %}">Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            {#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
+                            {#                     <a class="nav-link" href="#" >{{log}}</a>#}
+                        </li>
+                    </ul>
+                    {#                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">#}
                 </div>
             </form>
         </div>

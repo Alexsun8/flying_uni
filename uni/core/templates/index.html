@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block css_file %}
-
-    <link rel="stylesheet" type="text/css" media="all" href="/uni/core/templates/css/index.css">
+{% load static %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static "css/index.css" %}">
 {#<style type="text/css"> body,head {#}
 {#    background-image: linear-gradient(45deg, rgba(103, 0, 31, .8), rgba(34, 101, 163, .5)), url(https://html5book.ru/wp-content/uploads/2016/12/photo-8.jpg);#}
 {#    background-size: cover;#}

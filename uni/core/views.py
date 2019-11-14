@@ -28,7 +28,7 @@ def idea_view(request):
     # if self.request.user.is_staff:
     #     return render(request, 'idea/idea.html', {'main': 'home'}, {'log' : 'my profile'}, param = 'profile.html')
     # return render(request, 'idea/idea.html', {'main': 'home'}, {'log' : 'log in'}, param = 'login.html')
-    return render(request, 'idea/idea.html', locals())
+    return render(request, 'idea.html', locals())
     # def get(request, self):
     #     main = 'home'
     #     if self.request.user.is_staff:
