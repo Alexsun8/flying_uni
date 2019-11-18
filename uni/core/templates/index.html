@@ -37,18 +37,18 @@
         {% for course in courses %}
             {% if course.status == "done" %}
                 <tr>
-                    <td>{{ course.name }}
+                    <td><a href="{% url 'course_page' pk=course.pk %}"> {{ course.name }}</a>
                     <td>{{ course.status }}
                         {#              <td>{{course.}}  тип курса#}
                         {#              <td>{{course.}}  длительность предполагаемая#}
                     <td>{{ course.date }}
                         {% else %}
                 <tr class="disabled">
-                <td>{{ course.name }}
-                <td>{{ course.status }}
-                    {#              <td>{{course.}}  тип курса#}
-                    {#              <td>{{course.}}  длительность предполагаемая#}
-                <td> ---
+                    <td><a href="{% url 'course_page' pk=course.pk %}">{{ course.name }}</a>
+                    <td>{{ course.status }}
+                        {#              <td>{{course.}}  тип курса#}
+                        {#              <td>{{course.}}  длительность предполагаемая#}
+                    <td> ---
             {% endif %}
         {% endfor %}
         </tbody>

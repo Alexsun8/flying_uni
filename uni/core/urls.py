@@ -19,11 +19,13 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
-from core.views import home_view, index_view, idea_view
+from core.views import home_view, index_view, idea_view, course_view
 
 urlpatterns = [
     url(r'^index$', index_view, name = "index"),
     url(r'^home$', home_view, name = "home"),
-    url(r'^idea$', idea_view, name = "idea")
+    url(r'^idea$', idea_view, name = "idea"),
+    url(r'^course/id/(?P<pk>\d+)/$', course_view, name = "course_page"),
+    # url(r'^course/(?P<Course>\d+)/$', course_view, name= 'course_page')
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    {% block css_file %}{% endblock %}
+    {% block title %}<title>Flying university</title>{% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Philosopher&display=swap" rel="stylesheet">
+
+    {% block script_js %}{% endblock %}
+
+</head>
+
+
+<body>
+<!-- Main navigation -->
+<header>
+    {% block nav %} {% include "nav.html" %}{% endblock %}
+
+    {% block content_head %}
+    {% endblock %}
+</header>
+<!--Main Layout-->
+
+<a style="{margin-top: 10%}">
+    {% block up %}{% endblock %}
+</a>
+<main>{% block content_main %}
+
+{% endblock %}
+</main>
+<!--Main Layout-->
+
+{% block foo %}
+    <div id="foo">
+        <style type="text/css">
+            #foo {
+                position: fixed; /* Фиксированное положение */
+                left: 0;
+                bottom: 0; /* Левый нижний угол */
+            {#background: rgba(138, 169, 242, 0.89);#}
+                background:  rgba(34, 101, 163, .5);
+                font-family: 'Caveat', cursive;
+                color: rgb(10, 72, 245);
+                font-size: 100%;
+                width: 100%; /* Ширина слоя */
+            }
+
+            #foo div {
+                padding: 10px; /* Поля вокруг текста */
+            {#background:rgba(34, 101, 163, .5); /* Цвет фона */#}
+            }
+        </style>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                инфа
+            </div>
+            <div class="col-md-3 text-center">
+                сообщество волонтеров подвесного
+            </div>
+            <div class="col-md-3 text-center">
+                контакты: +7-xxx-xxx-xx-xx
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
+
+

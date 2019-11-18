@@ -40,18 +40,18 @@
                 <img src="{% static "images/fox.png" %}" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form">
+            <form method="POST" class="login100-form validate-form">{% csrf_token %}
 					<span class="login100-form-title">
-						Вход
+						Авторизация
 					</span>
-                {% if next %}
-                    <form action="/login/&next = {{ next }}" method="post">
-                {% else %}
-                    <form action="/login/" method="post">
-                {% endif %}
-                {% csrf_token %}
+                {#                {% if next %}#}
+                {#                    <form action="/login/&next = {{ next }}" method="post">#}
+                {#                {% else %}#}
+                {#                    <form action="/login/" method="post">#}
+                {#                {% endif %}#}
+                {#                {% csrf_token %}#}
                 {#                {{ form }}#}
-                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <div class="wrap-input100 validate-input" data-validate="Valid username">
                     <input class="input100" type="text" name="username" placeholder="Username">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
+                    <button type="submit" class="login100-form-btn"  value="Login">
                         Отправить
                     </button>
                 </div>
@@ -82,14 +82,12 @@
                     </a>
                 </div>
 
-                <div class="text-center p-t-136">
-                    <a class="txt2" href="{% url "sign_up" %}">
+                <a class="txt2" href="{% url "sign_up" %}">
+                    <div class="text-center p-t-136">
                         Создать аккаунт
                         <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                    </a>
-                </div>
-                </form>
-                </form>
+                    </div>
+                </a>
             </form>
         </div>
     </div>
@@ -121,3 +119,22 @@
 
 </body>
 </html>
+
+
+{#{% extends 'dappx/base.html' %}#}
+{#{% block body_block %}#}
+{#  <div class="container">#}
+{#    <div class="jumbotron">#}
+{#      <h1>Login here :</h1>#}
+{#<form method="post" action="{% url 'dappx:user_login' %}">#}
+{#          {% csrf_token %}#}
+{# A more "HTML" way of creating the login form#}
+{#          <label for="username">Username:</label>#}
+{#          <input type="text" name="username" placeholder="Username">#}
+{#<label for="password">Password:</label>#}
+{#          <input type="password" name="password" placeholder="Password">#}
+{#<input type="submit" name="" value="Login">#}
+{#</form>#}
+{#</div>#}
+{#  </div>#}
+{#{% endblock %}#}

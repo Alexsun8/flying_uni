@@ -1,10 +1,4 @@
-from django.contrib.auth.forms import AuthenticationForm
 from django.db import models
-from django.forms import forms
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-# from django.contrib.auth.models import AbstractUser
-
 
 
 class Location(models.Model):
@@ -62,7 +56,7 @@ class Course(models.Model):
     # level =
 
     def __str__(self):
-        return f"{self.name} - {self.status}"
+        return self.name
 
 
 class News(models.Model):
@@ -74,17 +68,14 @@ class News(models.Model):
     def __str__(self):
         return self.headline
 
-
-
 #    @receiver(post_save, sender=User)
- ##   def create_user_profile(sender, instance, created, **kwargs):
-     #   if created:
-    #        Profile.objects.create(user=instance)
+##   def create_user_profile(sender, instance, created, **kwargs):
+#   if created:
+#        Profile.objects.create(user=instance)
 
-   # @receiver(post_save, sender=User)
-  #  def save_user_profile(sender, instance, **kwargs):
- #       instance.profile.save()
+# @receiver(post_save, sender=User)
+#  def save_user_profile(sender, instance, **kwargs):
+#       instance.profile.save()
 #
-    # def __str__(self):
-    #     return 'Profile for user {}'.format(self.user.username)
-
+# def __str__(self):
+#     return 'Profile for user {}'.format(self.user.username)
