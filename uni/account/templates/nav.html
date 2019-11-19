@@ -41,16 +41,33 @@
             <form class="form-inline">
                 <div class="md-form my-0">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'sign_up' %}">Sign up</a>
-                        </li>
-                        <li class="nav-item">
-                            {#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
-                            {#                     <a class="nav-link" href="#" >{{log}}</a>#}
-                        </li>
+                        {% if active %}
+                                 <li class="nav-item active">
+    {#                            <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>#}
+                                <a class="nav-link" href="{% url 'profile' %}">Profile<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+{#                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>#}
+                                <a class="nav-link" href="{% url 'logout' %}" >Logout</a>
+{#                                <a class="nav-link" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">Logout</a>#}
+                            </li>
+                            <li class="nav-item">
+                                {#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
+                                {#                     <a class="nav-link" href="#" >{{log}}</a>#}
+                            </li>
+                        {% else %}
+                            <li class="nav-item active">
+    {#                            <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>#}
+                                <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'sign_up' %}">Sign up</a>
+                            </li>
+                            <li class="nav-item">
+                                {#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
+                                {#                     <a class="nav-link" href="#" >{{log}}</a>#}
+                            </li>
+                        {% endif %}
                     </ul>
                     {#                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">#}
                 </div>

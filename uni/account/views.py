@@ -56,6 +56,9 @@ from django.contrib.auth import authenticate, login
 #         form = ProfileForm()
 #     return render(request, 'sign_up.html', {'form': form})
 #
+from core.models import Course
+
+
 @login_required
 def special(request):
     return HttpResponse("You are logged in !")
@@ -91,7 +94,7 @@ def user_login(request):
 
 def logout_view(request):
     logout(request)
-    return HttpResponse("You are logged out !")
+    return render(request, 'logout.html')
 # from django.contrib.auth.forms import UserCreationForm
 
 #
@@ -130,7 +133,11 @@ def register_view(request):
             #     profile.profile_pic = request.FILES['photo']
             profile.save()
             registered = True
-            return redirect('core:idea')
+            # count = Course.objects.filter(status='done').count()
+            # user = request.user
+            # active = True
+            # courses = Course.objects.all()
+            return redirect('profile')
         else:
             print(user_form.errors,profile_form.errors)
     else:
