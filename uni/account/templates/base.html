@@ -14,6 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
     {% block css_file %}{% endblock %}
     {% block title %}<title>Flying university</title>{% endblock %}
@@ -44,25 +46,26 @@
 <!--Main Layout-->
 
 {% block foo %}
-    <div id="foo">
+    <div id="foo" style=" color: rgba(252,250,255,0.61)">
         <style type="text/css">
             #foo {
                 position: fixed; /* Фиксированное положение */
                 left: 0;
                 bottom: 0; /* Левый нижний угол */
-            {#background: rgba(138, 169, 242, 0.89);#}
-                background:  rgba(34, 101, 163, .5);
+            {#background: rgba(138, 169, 242, 0.89);#} background: rgba(34, 101, 163, .5);
                 font-family: 'Caveat', cursive;
                 color: rgb(10, 72, 245);
-                font-size: 100%;
-                width: 100%; /* Ширина слоя */
+            {#font-size: 80%;#} width: 100%; /* Ширина слоя */
+                font-size: medium;
+                height: 5%;
             }
 
             #foo div {
-                padding: 10px; /* Поля вокруг текста */
-            {#background:rgba(34, 101, 163, .5); /* Цвет фона */#}
+                padding: 2px; /* Поля вокруг текста */
+            {#background:rgba(34, 101, 163, .5); /* Цвет фона */#}{#background:rgba(34, 101, 163, .5); /* Цвет фона */#}
             }
         </style>
+
         <div class="row">
             <div class="col-md-3 text-center">
                 инфа

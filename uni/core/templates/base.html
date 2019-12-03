@@ -15,7 +15,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
-    {% block css_file %}{% endblock %}
+    {% block css_file %}
+        {#    {% load static %}#}
+        {#    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">#}
+    {% endblock %}
     {% block title %}<title>Flying university</title>{% endblock %}
     <link href="https://fonts.googleapis.com/css?family=Philosopher&display=swap" rel="stylesheet">
 
@@ -44,34 +47,40 @@
 <!--Main Layout-->
 
 {% block foo %}
-    <div id="foo">
+    <div id="foo" style="color: rgba(252,250,255,0.61)">
         <style type="text/css">
             #foo {
                 position: fixed; /* Фиксированное положение */
                 left: 0;
                 bottom: 0; /* Левый нижний угол */
-            {#background: rgba(138, 169, 242, 0.89);#}
-                background:  rgba(34, 101, 163, .5);
+            {#background: rgba(138, 169, 242, 0.89);#} background: rgba(34, 101, 163, .5);
                 font-family: 'Caveat', cursive;
                 color: rgb(10, 72, 245);
-                font-size: 100%;
+                {#font-size: 80%;#}
                 width: 100%; /* Ширина слоя */
+                font-size: medium;
+                height: 5%;
             }
 
             #foo div {
-                padding: 10px; /* Поля вокруг текста */
+                padding: 2px; /* Поля вокруг текста */
+            {#background:rgba(34, 101, 163, .5); /* Цвет фона */#}
             {#background:rgba(34, 101, 163, .5); /* Цвет фона */#}
             }
         </style>
-        <div class="row">
-            <div class="col-md-3 text-center">
-                инфа
-            </div>
-            <div class="col-md-3 text-center">
-                сообщество волонтеров подвесного
-            </div>
-            <div class="col-md-3 text-center">
-                контакты: +7-xxx-xxx-xx-xx
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    Инстаграмм повесного: @_flying_uni_
+                </div>
+                <div class="col-sm">
+                    Сообщество волонтёров подвесного: @id329847
+                </div>
+                <div class="col-sm">
+                    Контакты: +7-916-463-12-59
+                </div>
             </div>
         </div>
     </div>

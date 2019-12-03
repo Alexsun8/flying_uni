@@ -1,135 +1,34 @@
-{#<!DOCTYPE html>#}
-{#<html lang="ru" >#}
-{#<head>#}
-{#  <meta charset="UTF-8">#}
-{#  <title>Progressive sign up </title>#}
-{#  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">#}
-{#    {% load static %}#}
-{#<link rel="stylesheet" href="{% static "css/sign_up.css" %}">#}
-{##}
-{#</head>#}
-{#<body>#}
-{#<!-- partial:index.partial.html -->#}
-{#<div class="container">#}
-{#            <div class="navigation">#}
-{#                <ol>#}
-{#                    <li><a href="#name"  data-ref="name">Name</a></li>#}
-{#                    <li><a href="#uname"  data-ref="uname">Username</a></li>#}
-{#                    <li><a href="#email"  data-ref="email">Email</a></li>#}
-{#                    <li><a href="#password"   data-ref="viewpswd">Password</a></li>#}
-{#                    <li><a href="#phone"  data-ref="phone">Phone</a></li>#}
-{#                </ol>#}
-{#            </div>#}
-{#            <form id="sign-form" class="sign-form">#}
-{#                <ol class="questions">#}
-{#                    <li>#}
-{#                        <span><label for="name">Hi, What is your Name?</label></span>#}
-{#						<input class="active" id="name" name="name" type="text" placeholder="Enter your full name" autofocus/>#}
-{#                    </li>#}
-{#                    <li>#}
-{#				        <span><label for="uname">& what shall we call you?</label></span>#}
-{#                        <input id="uname" name="username" type="text" placeholder="Enter a username" autofocus/>#}
-{#					</li>#}
-{#                    <li>#}
-{#				        <span><label for="email">Enter you email</label></span>#}
-{#                        <input id="email" name="email" type="text" placeholder="Email"  autofocus/>#}
-{#					</li>#}
-{#                    <li>#}
-{#                        <span><label for="password">Choose a password</label></span>#}
-{#                        <input id="viewpswd" name="password" type="text" placeholder="this your password"/>#}
-{#                        <input id="password" name="password" type="password" placeholder="make sure you dont forget" autofocus/>#}
-{#                        <span id="show-pwd" class="view"></span>#}
-{#					</li>#}
-{#                    <li>#}
-{#                        <span><label for="phone">Enter your phone number</label></span>#}
-{#                            <select name="countryCode" class="country"  >#}
-{#                                <option data-countryCode="RU" value="91">(+7) Россия </option>#}
-{#                                <option data-countryCode="GB" value="44">(+44) UK </option>#}
-{#                                <option data-countryCode="US" value="1">(+1) USA </option>#}
-{#                                <optgroup label="Other countries">#}
-{#                                   <option data-countryCode="DZ" value="213"> (+213)Algeria</option>#}
-{#                                   <option data-countryCode="AD" value="376"> (+376) Andorra</option>#}
-{#                                   <option data-countryCode="AO" value="244">(+244) Angola </option>#}
-{#                                   <option data-countryCode="AI" value="1264"> (+1264) Anguilla</option>#}
-{#                                   <option data-countryCode="AG" value="1268">(+1268) Antigua &amp; Barbuda </option>#}
-{#                                   <option data-countryCode="AR" value="54">(+54) Argentina </option>#}
-{#                                   <option data-countryCode="AM" value="374"> (+374) Armenia</option>#}
-{#                                   <option data-countryCode="AW" value="297">(+297) Aruba </option>#}
-{#                                   <option data-countryCode="AU" value="61"> (+61) Australia</option>#}
-{#                                   <option data-countryCode="AT" value="43">(+43) Austria </option>#}
-{#                                   <option data-countryCode="AZ" value="994"> (+994) Azerbaijan</option>#}
-{#                                   <option data-countryCode="BS" value="1242">(+1242)Bahamas </option>#}
-{#                                </optgroup>#}
-{#                            </select>#}
-{#                            <input id="phone" name="phone" type="text" autofocus/>#}
-{#                    </li>#}
-{#                    <li><p style="margin-top: 45px;font-size: 32pt;float:right">#}
-{#                        <a href="{% url 'profile' %}" style="color:white;text-decoration:none" id="signup">sign up</a></p>    </li>#}
-{#                #}
-{#                    #}
-{#                </ol>#}
-{#                <div id="next-page" alt="Kiwi standing on oval"></div>#}
-{#                <div class="error-message"></div>#}
-{#                #}
-{#            </form>#}
-{#        <h1 id="wf" style="opacity:0;width: 600px; margin-top:1.1em;display:none; margin-bottom:1em" href="{% url 'profile' %}">Thank you</h1>#}
-{#<!-- partial -->#}
-{#    {% load static %}#}
-{#  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script><script  src="{% static "js/sign_up.js"%}"></script>#}
-{#</div>#}
-{#</body>#}
-{#</html>#}
-
 
 {% extends 'base.html' %}
+{% block css_file %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/sign_up.css" %}">
+{% endblock %}
 
+{% block content_head %}
+{% if active %}
+    <h1 style="margin-top: 6%;">Редактирование профиля</h1>
+    <h3>Отредактируйте те формы, которые Вас не устраивают</h3>
+{% else %}
+    <h1 style="margin-top: 6%;">Регистрация</h1>
+    <h3>Заполните, пожалуйста, все формы</h3>
+{% endif %}
+{% endblock  %}
 {% block content_main %}
-{#    <a style=" margin-top: 10%">#}
-{#        <h1 style=" margin-top: 20%">Create an account</h1>#}
-{#     <form method="POST" class="post-form">#}
-{#            {{ username }}#}
-{#         <form action="/your-name/" method="post">#}
-{#    <label for="username">Username: </label>#}
-{#    <input id="username" type="text" name="Username" value="{{ username }}">#}
-{#            <button type="submit" class="save btn btn-default">Save</button>#}
-{#     </form>#}
-{#         <form method="POST" class="post-form">#}
-{#            {{ username }}#}
-{#         <form action="/your-name/" method="post">#}
-{#    <label for="pass">Password: </label>#}
-{#    <input id="password" type="text" name="password" value="{{ password }}">#}
-{#            <button type="submit" class="save btn btn-default">Save</button>#}
-{#     </form>#}
-{#    <form method="POST" class="post-form">{% csrf_token %}#}
-{#        {{ password }}#}
-{#        <button type="submit" class="save btn btn-default">Save</button>#}
-{#    </form>#}
-{#    <form method="POST" class="post-form">{% csrf_token %}#}
-{#        {{ form.as_p }}#}
-{#        <button type="submit" class="save btn btn-default">Save</button>#}
-{#    </form>#}
-{#    </a>#}
+    <div class="pad">
+        <div class="container_main">
 
-  <div class="container">
-    <div class="jumbotron" style="background: #1e7e34">
-      {% if registered %}
-        <h1>Thank you for registering!</h1>
-      {% else %}
-        <h1>Register Here</h1>
-        <h3>Just fill out the form.</h3>
-        <form method="POST" enctype="multipart/form-data" action="/accounts/sign_up/" > {% csrf_token %}
-{#        <form enctype="multipart/form-data" method="POST">#}
-{#            {{ form }}#}
-
-            {{ user_form.as_p }}
-{#        </form>#}
-{#        <form method="POST" enctype="multipart/form-data" action="/accounts/sign_up/" > {% csrf_token %}#}
-            {{ profile_form.as_p }}
-{#            {{ profile_form.birth_date.bound_data }}#}
-            <button type="submit"  class="btn btn-success" value="SignesUp">Register</button>
-        </form>
-
-      {% endif %}
+            <form method="POST" class="post-form">{% csrf_token %}
+                <form enctype="multipart/form-data" method="POST" class="form-inline">
+                    {{ user_form.as_p }}
+                    {{ profile_form.as_p }}
+                    {% if active %}
+                        <button type="submit" class="save btn btn-outline-light">Сохранить</button>
+                    {% else %}
+                        <button type="submit" class="save btn btn-outline-light">Зарегистрироваться</button>
+                    {% endif %}
+                </form>
+            </form>
+        </div>
     </div>
-  </div>
 {% endblock %}

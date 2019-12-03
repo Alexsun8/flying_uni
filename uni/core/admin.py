@@ -1,19 +1,31 @@
 from django.contrib import admin
-from core.models import Course, Location, President, News
+from core.models import Course, Location, News, Categories
 admin.site.register(News)
 # from django.contrib.auth.admin import UserAdmin
 # from django.contrib.auth.models import User
 # from core.models import Profile
 
 
-class CourseAdmin(admin.ModelAdmin):
-    list_display = ('name', 'status', 'location', 'group_president', 'date', 'information')
-    list_filter = ('name', 'status', 'location', 'group_president', 'date')
+# class CourseAdmin(admin.ModelAdmin):
+#     model = Course
+#     # list_display = ('name', 'status', 'location', 'group_president', 'date', 'information', )
+#     # list_filter = ('name', 'status', 'location', 'group_president', 'date', )
+#     filter_horizontal = ('teacher', )
+#
 
-
-admin.site.register(Course, CourseAdmin)
+admin.site.register(Course)
+# admin.site.register(Course, CourseAdmin)
 admin.site.register(Location)
-admin.site.register(President)
+
+admin.site.register(Categories)
+# class PresidentAdmin(admin.ModelAdmin):
+    # model = President
+    # filter_horizontal = ('user', )
+
+
+# admin.site.register(President)
+# admin.site.register()
+
 
 
 # Define an inline admin descriptor for Employee model

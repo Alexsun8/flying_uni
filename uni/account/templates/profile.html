@@ -1,35 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-   <link rel="stylesheet" type="text/css" media="all" href={% static "css/profile.css"%}>
-
+    <link rel="stylesheet" type="text/css" media="all" href={% static "css/profile.css" %}>
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">#}
     <title>Flying university</title>
 </head>
 
-<header>
-    {% include "nav.html" %}
-</header>
+{#<header>#}
+{#    {% include "nav.html" %}#}
+{#</header>#}
+<main>
+    {#    <div class="avatar" ><a href="{% url 'home' %}">{{ profile.photo }}</a></div>#}
 
-  <div class="avatar">{{ profile.photo }}</div>
-    <h1>{{profile.user.username}}</h1>
+{#    <div class="container">#}
+
+        <ul class="social">
+
+            <li class="home"><a href="{% url 'home' %}" class=" entypo-home">
+                </a>
+            </li>
 
 
-<div class="container">
-		
-		<ul class="social">
+        </ul>
+{#    </div>#}
 
-			<li class="facebook"><a href="#" class="entypo-facebook"></a></li>
-			<li class="twitter"><a href="#" class="entypo-twitter"></a></li>
-       <li class="sociali"><a href="#" class="entypo-mouse"></a></li>
-			<li class="codepen"><a href="#" class="entypo-code"></a></li>
-			<li class="mail"><a href="#" class="entypo-mail"></a></li>
 
-		</ul>
+    <h1>{{ user.first_name }} {{ user.last_name }}
+    </h1>
+    {#    </h1>#}
 
-	</div>
+    <div class="bio">{{ user.profile.bio }}</div>
+
+    {# добаыить контейнер с домом #}
+
+    <div class="container">
+
+        <ul class="social">
+
+            <li class="teach"><a href="{% url "teach_profile" %}" class="entypo-feather" data-toggle="tooltip"
+                                 data-placement="top"
+                                 title="Преподаваемые/Курируемые"></a></li>
+            <li class="stud"><a href="{% url "stud_profile" %}" class="entypo-graduation-cap" data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Изучаемые"></a></li>
+            <li class="wish"><a href="{% url "wish_profile" %}" class="entypo-heart" data-toggle="tooltip"
+                                data-placement="top"
+                                title="Желаемые"></a></li>
+            <li class="logout"><a href="{% url 'logout' %}" class="entypo-logout" data-toggle="tooltip"
+                                  data-placement="bottom" title="Logout"></a></li>
+            {#            <li class="settings"><a href="#" class="entypo-mail" data-toggle="tooltip"#}
+            <li class="settings"><a href="{% url 'settings_profile' %}" class="entypo-cog" data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Настройки"></a></li>
+        </ul>
+
+    </div>
+</main>
 
 </html>
+
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block css %}#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    {% load static %}#}
+{#   <link rel="stylesheet" type="text/css" media="all" href={% static "css/profile.css"%}>#}
+{##}
+{#{% endblock %}#}
+{#{% block content_main%}#}
+{##}
+{#<div class="avatar">{{ profile.photo }}</div>#}
+{#<h1>{{user.username}}</h1>#}
+{##}
+{##}
+{#<div class="container">#}
+{##}
+{#		<ul class="social">#}
+{##}
+{#			<li class="facebook"><a href="#" class="entypo-facebook"></a></li>#}
+{#			<li class="twitter"><a href="#" class="entypo-twitter"></a></li>#}
+{#       <li class="sociali"><a href="#" class="entypo-mouse"></a></li>#}
+{#			<li class="codepen"><a href="#" class="entypo-code"></a></li>#}
+{#			<li class="mail"><a href="#" class="entypo-mail"></a></li>#}
+{##}
+{#		</ul>#}
+{#</div>#}
+{#{% endblock %}#}

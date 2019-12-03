@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block css_file %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/add_course.css" %}">
+{% endblock %}
+
+
+    {% block content_head %}
+     {% if add %}
+            <h1 style="margin-top: 6%;">Новое объявление</h1>
+        {% endif %}
+        {% if edit %}
+            <h1 style="margin-top: 6%;">Редактировать новость</h1>
+        {% endif %}
+    {% endblock %}
+
+{% block content_main %}
+{#    <h1 style="margin-top: 6%;">Новая новость(лучше звучать не может, мне не осталась 1 ночь)</h1>#}
+    <div class="pad">
+        <div class="container_main">
+            <form method="POST" class="post-form">{% csrf_token %}
+                                {{ form.as_p }}
+                <button type="submit" class="save btn  btn-outline-light">Сохранить</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
