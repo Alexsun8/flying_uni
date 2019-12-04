@@ -95,5 +95,6 @@ from rest_framework.views import APIView
 class Logout(APIView):
     def get(self, request, format=None):
         request.user.auth_token.delete()
+        print("Logout")
         return Response(status=status.HTTP_200_OK)
 
