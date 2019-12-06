@@ -3,13 +3,6 @@
 {% block css_file %}
     {% load static %}
     <link rel="stylesheet" type="text/css" media="all" href="{% static "css/index.css" %}">
-    {#<style type="text/css"> body,head {#}
-    {#    background-image: linear-gradient(45deg, rgba(103, 0, 31, .8), rgba(34, 101, 163, .5)), url(https://html5book.ru/wp-content/uploads/2016/12/photo-8.jpg);#}
-    {#    background-size: cover;#}
-    {#    background-position: center center;#}
-    {#    background-repeat: no-repeat;#}
-    {#}#}
-    {#    </style>#}
 {% endblock %}
 {% block script_js %}{% endblock %}
 
@@ -21,8 +14,7 @@
                     <a href="{% url 'add_course' %}">
                         <botton type="button" role="button" class="btn btn-outline-secondary">Добавить
                             новый курс
-                        </botton>
-                    </a>
+                        </botton></a>
                 {% endif %}
 
                 {% if stu or wi %}
@@ -69,28 +61,11 @@
                     <button class="dropbtn">Подкатегория</button>
                     <div class="dropdown-content">
                         {% for t in types %}
-                            <a href="{% url 'index_with_types' pk=t.pk%}">{{ t }}</a>
+                            <a href="{% url 'index_with_types' pk=t.pk %}">{{ t }}</a>
                         {% endfor %}
                     </div>
                 </div>
             {% endif %}
-
-
-            {#            {% if domain %}#}
-            {#                <div class="dropdown">#}
-            {#                <button class="dropbtn">Категория</button>#}
-            {#                <div class="dropdown-content">#}
-            {#                    <a href="#">{{ categ_list }}</a>#}
-            {#                </div>#}
-            {#            </div>#}
-            {##}
-            {#            {% endif %}#}
-            {#        <form action="{% url 'search_index' %}" method="get">#}
-{#            <form class="form-inline my-2 my-lg-0">#}
-{#                <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search"#}
-{#                       aria-label="Search" style="background-color: rgba(0,0,0,0); margin-right: 5%">#}
-{#                <button class="btn btn-success" type="submit">Поиск</button>#}
-{#            </form>#}
         {% endif %}
     </div>
 {% endblock %}
@@ -101,13 +76,10 @@
         <tr>
             <th>Название курса
             <th>Статус
-                {#      <th>Тип курса#}
-                {#      <th>Длительность#}
             <th>Дата начала занятий
             <th>Преподаватль
             <th>Категория
             <th>Подкатегория
-                {#            <th>#}
         </thead>
         <tbody>
         {% for course in courses %}
@@ -115,39 +87,20 @@
                 <tr>
                     <td><a href="{% url 'course_page' pk=course.pk %}"> {{ course.name }}</a>
                     <td>{{ course.status }}
-                        {#              <td>{{course.}}  тип курса#}
-                        {#              <td>{{course.}}  длительность предполагаемая#}
                     <td>{{ course.date }}
-                        {#                    <td>{{ course.teacher }}#}
-                        {#                    <td> <3#}
                         {% else %}
                 <tr class="disabled">
                 <td><a href="{% url 'course_page' pk=course.pk %}">{{ course.name }}</a>
                 <td>{{ course.status }}
-                    {#              <td>{{course.}}  тип курса#}
-                    {#              <td>{{course.}}  длительность предполагаемая#}
                 <td> ---
-                {#                    <td> ---#}
-                {#                    <td> <3#}
             {% endif %}
         {% if course.has_teacher %}
             <td>{{ course.teacher.last_name }}
-                {#                        <td> ---#}
                 {% else %}
-                {#                        <td>{{ course.teacher }}#}
             <td> ---
         {% endif %}
             <td> {{ course.type.domain }}
             <td> {{ course.type }}
-            {% if user.is_authenticated %}
-                {#                        {% if course in user.profile.wishes%}#}
-                {#                        {{ wish }}#}
-                {#                    {% if course in wish.all %}#}
-                {#                        <td style="color: red"> <3#}
-                {#                            {% else %}#}
-                {#                        <td> <3#}
-                {#                    {% endif %}#}
-            {% endif %}
         {% endfor %}
         </tbody>
     </table>

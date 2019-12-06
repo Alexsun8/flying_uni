@@ -2,7 +2,6 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url(http://weloveiconfonts.com/api/?family=font_awesome);
 
-/* entypo */
 [class*="entypo-"]:before {
     font-family: 'entypo', sans-serif;
 }
@@ -43,16 +42,12 @@ body {
 
 .bio {
     background-image: url("https://i.imgur.com/d598nSK.png");
-    /*background-size: cover;*/
     border-radius: 6%;
     display: inline-block;
     margin-right: 32%;
     margin-left: 32%;
     margin-top: 2%;
-     padding: 40px;
-    /*margin: 4rem auto 2rem auto;*/
-    /*width: 10rem;*/
-    /*height: 10rem;*/
+    padding: 40px;
     box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
     transition: all 0.5s ease-in-out;
 }
@@ -209,6 +204,7 @@ and (max-width: 320px) {
     background: #1abc9c;
     box-shadow: 0 0 0 2px #1abc9c;
 }
+
 .home {
     background: rgba(255, 255, 255, 0.1);
     right: 70%;

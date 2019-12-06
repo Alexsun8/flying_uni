@@ -1,16 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.db.models import Q
 from django.http import Http404
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView
-
 from account.models import Profile
 from core.forms import NewsForm, CourseForm, LocationForm
-from core.models import Course, News, Location, Categories
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from core.models import Course, News, Categories
 
 
 def index_view(request):
@@ -19,27 +13,8 @@ def index_view(request):
     active = user.is_active
     index = True
     courses = Course.objects.all()
-    print(courses[0].type, courses[0].type.domain)
-    # domains = Categories.DOMAIN_CHOIСES
-    # print(domains[0])
     title = "Список всех курсов"
-    # if user.is_authenticated:
-    #     wish = user.profile.wishes
-    #     print("wishes: ", wish)
-    #     print("prof check: date", user.profile.birth_date)
     return render(request, 'index.html', locals())
-
-
-# class search_index_view(ListView):
-#     model = Course
-#     template_name = 'index.html'
-#
-#     def get_queryset(self):  # новый
-#         query = self.request.GET.get('q')
-#         object_list = Course.objects.filter(
-#             Q(name__icontains=query) | Q(status__icontains=query) | Q(type__icontains=query) | Q(domain__icontains=query)
-#         )
-#         return object_list
 
 
 def add_location(request):
@@ -114,11 +89,7 @@ def add_course_to_wish(request, pk):
             if course in prof.knowledge.all():
                 know_list.append(prof.user)
 
-        if user in wish_list:
-            print("Добавлено в список желаний")
-
     return render(request, 'course.html', locals())
-    # return redirect('course_page')
 
 
 def delete_course_from_wish(request, pk):
@@ -147,9 +118,6 @@ def delete_course_from_wish(request, pk):
         for prof in Profile.objects.all():
             if course in prof.knowledge.all():
                 know_list.append(prof.user)
-
-        if user not in wish_list:
-            print("Удилили из спискажеланий")
 
     return render(request, 'course.html', locals())
 
@@ -181,9 +149,6 @@ def add_course_to_stud(request, pk):
             if course in prof.knowledge.all():
                 know_list.append(prof.user)
 
-        if user in stu_list:
-            print("Добавлено в список курсов")
-
     return render(request, 'course.html', locals())
 
 
@@ -213,9 +178,6 @@ def delete_course_from_stud(request, pk):
         for prof in Profile.objects.all():
             if course in prof.knowledge.all():
                 know_list.append(prof.user)
-
-        if user not in stu_list:
-            print("Удилили из списка курсов")
 
     return render(request, 'course.html', locals())
 
@@ -247,9 +209,6 @@ def add_course_to_know(request, pk):
             if course in prof.knowledge.all():
                 know_list.append(prof.user)
 
-        if user in know_list:
-            print("Добавлено в список знаний")
-
     return render(request, 'course.html', locals())
 
 
@@ -280,9 +239,6 @@ def delete_course_from_know(request, pk):
             if course in prof.knowledge.all():
                 know_list.append(prof.user)
 
-        if user not in know_list:
-            print("Удилили из списка знаний")
-
     return render(request, 'course.html', locals())
 
 
@@ -298,12 +254,11 @@ def edit_course_view(request, pk):
     if user.pk == course.group_president.pk or user.pk == course.teacher.pk:
         is_pres = True
     if is_vol == False and is_pres == False:
-        raise Http404("It's not your buisness!")
+        raise Http404("Вне уровня доступа!")
     if request.method == "POST":
         form = CourseForm(request.POST, instance=course)
         if form.is_valid():
             course = form.save(commit=False)
-            # news.date = timezone.now()
             course.save()
             stu_list = []
             for prof in Profile.objects.all():
@@ -336,10 +291,8 @@ def add_course_view(request):
         form = CourseForm(request.POST)
         if form.is_valid():
             course = form.save(commit=False)
-            # news.date = timezone.now()
             course.save()
             return redirect('/uni/index')
-        # r eturn render(request, 'index.html', locals())
     else:
         form = CourseForm()
     return render(request, 'add_course.html', locals())
@@ -371,7 +324,7 @@ def edit_news_view(request, pk):
     active = user.is_active
     is_vol = user.profile.is_volunteer()
     if is_vol == False:
-        raise Http404("It's not your buisness!")
+        raise Http404("Вне уровня доступа!")
     if request.method == "POST":
         form = NewsForm(request.POST, instance=news)
         if form.is_valid():
@@ -379,8 +332,6 @@ def edit_news_view(request, pk):
             news.date = timezone.now()
             news.save()
             return redirect('/uni/home')
-            # new = News.objects.all().order_by('-date')
-            # return render(request, 'home.html', {'count': count, 'active': active, 'news': new})
     else:
         form = NewsForm(instance=news)
     return render(request, 'add_news.html', locals())
@@ -394,16 +345,14 @@ def add_news_view(request):
     add = True
     is_vol = user.profile.is_volunteer()
     if is_vol == False:
-        raise Http404("It's not your buisness!")
+        raise Http404("Вне уровня доступа!")
     if request.method == "POST":
         form = NewsForm(request.POST)
         if form.is_valid():
             news = form.save(commit=False)
             news.date = timezone.now()
             news.save()
-            # new = News.objects.all().order_by('-date')
             return redirect('/uni/home')
-            # return render(request, 'home.html', {'count': count, 'active': active, 'news': new})
     else:
         form = NewsForm()
     return render(request, 'add_news.html', locals())
@@ -426,15 +375,9 @@ def index_with_domain_view(request, num):
             types.append(ty)
     print(types)
     for cou in Course.objects.all():
-        # print(cou.type.domain , domain[0])
         if cou.type.domain == domain[0]:
             courses.append(cou)
     title = "Список курсов"
-    # domain=domain
-    # if user.is_authenticated:
-    #     wish = user.profile.wishes
-    #     print("wishes: ", wish)
-    #     print("prof check: date", user.profile.birth_date)
     return render(request, 'index.html', locals())
 
 
@@ -450,17 +393,11 @@ def index_with_types_view(request, pk):
 
     for d in Categories.DOMAIN_CHOIСES:
         if domain == d[0]:
-            dom=d[1]
+            dom = d[1]
 
     for ty in Categories.objects.all():
         if ty.domain == domain:
             types.append(ty)
     courses = Course.objects.filter(type=type)
     title = "Список курсов"
-    # domain=domain
-    # if user.is_authenticated:
-    #     wish = user.profile.wishes
-    #     print("wishes: ", wish)
-    #     print("prof check: date", user.profile.birth_date)
     return render(request, 'index.html', locals())
-

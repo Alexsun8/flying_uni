@@ -2,38 +2,25 @@
 {% block css_file %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "css/add_course.css" %}">
-{#    <style>#}
-{#        body::before {#}
-{#            content: '';#}
-{#            position: fixed; /* Фиксируем на одном месте */#}
-{#            left: 0;#}
-{#            right: 0; /* Вся ширин */#}
-{#            top: 0;#}
-{#            bottom: 0; /* Вся высота */#}
-{#            z-index: -1; /* Фон ниже текста */#}
-{#            /* Параметры фона */#}
-{#            background-image: url(http://www.gandex.ru/upl/oboi/gandex.ru-19837_cd7c2f4c95580bc64b07e86d4e17b236.jpg);#}
-{#            filter: blur(5px); /* Размытие */#}
-{#        }#}
-{#    </style>#}
 {% endblock %}
-    {% block content_head %}
-     {% if add %}
-            <h1 style="margin-top: 6%;">Новый курс</h1>
-        {% endif %}
-        {% if edit %}
-            <h1 style="margin-top: 6%;">Редактировать курс</h1>
-        {% endif %}
-    {% endblock %}
+{% block content_head %}
+    {% if add %}
+        <h1 style="margin-top: 6%;">Новый курс</h1>
+    {% endif %}
+    {% if edit %}
+        <h1 style="margin-top: 6%;">Редактировать курс</h1>
+    {% endif %}
+{% endblock %}
 {% block content_main %}
-    <div class = "pad">
-    <div class="container_main">
+    <div class="pad">
+        <div class="container_main">
 
-        <form method="POST" class="post-form" class="form-inline"  style="background-color: rgba(0,0,0,0)" >{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-outline-light">Сохранить</button>
-        </form>
-    </div>
+            <form method="POST" class="post-form" class="form-inline"
+                  style="background-color: rgba(0,0,0,0)">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-outline-light">Сохранить</button>
+            </form>
+        </div>
     </div>
 {% endblock %}
 

@@ -4,17 +4,12 @@
             background-color: #fff5b5 !important;
             font-family: 'Caveat', cursive;
             color: rgba(209, 39, 219, 0.67);
-            {#margin-right: 2%;#}
-            {#margin-left: 2%;#}
         }
-
-        .navbar:not(.top-nav-collapse) {
+      .navbar:not(.top-nav-collapse) {
             background: transparent !important;
             font-family: 'Caveat', cursive;
             color: rgba(209, 39, 219, 0.67);
             font-size: 160%;
-            {#margin-right: 2%;#}
-            {#margin-left: 2%;#}
         }
     </style>
     <div class="container">
@@ -34,42 +29,29 @@
                     <a class="nav-link" href="{% url 'idea' %}">Idea</a>
                 </li>
                 <li class="nav-item">
-                    {#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
-                    {#                     <a class="nav-link" href="#" >{{log}}</a>#}
-                </li>
+                 </li>
             </ul>
             <form class="form-inline">
                 <div class="md-form my-0">
                     <ul class="navbar-nav mr-auto">
                         {% if active %}
-                                 <li class="nav-item active">
-    {#                            <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>#}
-                                <a class="nav-link" href="{% url 'profile' %}">Profile<span class="sr-only">(current)</span></a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'profile' %}">Profile<span
+                                        class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-{#                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>#}
-                                <a class="nav-link" href="{% url 'logout' %}" >Logout</a>
-{#                                <a class="nav-link" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">Logout</a>#}
-                            </li>
-                            <li class="nav-item">
-                                {#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
-                                {#                     <a class="nav-link" href="#" >{{log}}</a>#}
+                                <a class="nav-link" data-toggle="modal" data-target="#myModal">Logout</a>
                             </li>
                         {% else %}
                             <li class="nav-item active">
-    {#                            <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>#}
-                                <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span
+                                        class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'sign_up' %}">Sign up</a>
                             </li>
-                            <li class="nav-item">
-                                {#                    <a class="nav-link" href="/account/templates/{{ param    }}">{{log}}</a>#}
-                                {#                     <a class="nav-link" href="#" >{{log}}</a>#}
-                            </li>
                         {% endif %}
                     </ul>
-                    {#                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">#}
                 </div>
             </form>
         </div>
@@ -77,27 +59,25 @@
 </nav>
 
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="color: #1abc9c; margin-left: 1%" id="myModalLabel">Logout</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #1abc9c;">
+                Вы хотите выйти?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Назад</button>
+                <a href="{% url 'logout' %}">
+                    <button type="button" class="btn btn-primary">Выйти</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-{#<!-- Small modal -->#}
-{#<div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">#}
-{#  <div class="modal-dialog modal-sm">#}
-{#    <div class="modal-content">#}
-{#      <div class="modal-header">#}
-{#        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>#}
-{#        <h4>Log Out <i class="fa fa-lock"></i></h4>#}
-{#      </div>#}
-{#      <div class="modal-body">#}
-{#        <p><i class="fa fa-question-circle"></i> Are you sure you want to log-off? <br /></p>#}
-{#        <div class="actionsBtns">#}
-{#            <form action="{% url 'logout' %}" method="post">#}
-{#            <form  method="POST">#}
-{#                <input type="hidden" name="${_csrf.logout}" value="${_csrf.token}"/>#}
-{#                <button href ="{% url 'logout' %}"type="submit" class="btn btn-default btn-primary" data-dismiss="modal" >Logout</button>#}
-{#	                <button class="btn btn-default" data-dismiss="modal">Cancel</button>#}
-{#            </form>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#</div>#}
-{##}

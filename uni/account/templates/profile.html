@@ -5,37 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" type="text/css" media="all" href={% static "css/profile.css" %}>
-    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">#}
     <title>Flying university</title>
 </head>
-
-{#<header>#}
-{#    {% include "nav.html" %}#}
-{#</header>#}
 <main>
-    {#    <div class="avatar" ><a href="{% url 'home' %}">{{ profile.photo }}</a></div>#}
+    <ul class="social">
 
-{#    <div class="container">#}
-
-        <ul class="social">
-
-            <li class="home"><a href="{% url 'home' %}" class=" entypo-home">
-                </a>
-            </li>
+        <li class="home"><a href="{% url 'home' %}" class=" entypo-home">
+        </a>
+        </li>
 
 
-        </ul>
-{#    </div>#}
-
-
+    </ul>
     <h1>{{ user.first_name }} {{ user.last_name }}
     </h1>
-    {#    </h1>#}
-
     <div class="bio">{{ user.profile.bio }}</div>
-
-    {# добаыить контейнер с домом #}
-
     <div class="container">
 
         <ul class="social">
@@ -61,32 +44,3 @@
 </main>
 
 </html>
-
-{#{% extends 'base.html' %}#}
-{##}
-{#{% block css %}#}
-{#    <meta charset="utf-8">#}
-{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
-{#    {% load static %}#}
-{#   <link rel="stylesheet" type="text/css" media="all" href={% static "css/profile.css"%}>#}
-{##}
-{#{% endblock %}#}
-{#{% block content_main%}#}
-{##}
-{#<div class="avatar">{{ profile.photo }}</div>#}
-{#<h1>{{user.username}}</h1>#}
-{##}
-{##}
-{#<div class="container">#}
-{##}
-{#		<ul class="social">#}
-{##}
-{#			<li class="facebook"><a href="#" class="entypo-facebook"></a></li>#}
-{#			<li class="twitter"><a href="#" class="entypo-twitter"></a></li>#}
-{#       <li class="sociali"><a href="#" class="entypo-mouse"></a></li>#}
-{#			<li class="codepen"><a href="#" class="entypo-code"></a></li>#}
-{#			<li class="mail"><a href="#" class="entypo-mail"></a></li>#}
-{##}
-{#		</ul>#}
-{#</div>#}
-{#{% endblock %}#}

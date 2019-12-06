@@ -2,7 +2,6 @@
 
 {% block css_file %}
     {% load static %}
-    {#<img src="{% static "my_app/example.jpg" %}" alt="My image">#}
     <link rel="stylesheet" type="text/css" media="all" href="{% static "css/home_style.css" %}">
     <style type="text/css"> body {
         background-image: url('https://kipmu.ru/wp-content/uploads/pnbglb.jpg');
@@ -33,48 +32,26 @@
 
 {% block content_main %}
     <section class=" desk">
-        {#        <div class="container-fluid">#}
-        {#            <div class="row">#}
-        {#                <div class="column-4">курсы</div>#}
-        {#                <div class="column-4">контакты</div>#}
-        {#                <div class="column-4">идея</div>#}
-        {#            </div>#}
-        {#        </div>#}
-
         <div class="container-fluid">
             <div id="sammary" class="row">
-                {#                <div class="column-8" style="text-align: center;">#}
                 <h3 style="text-align: center;">Новости</h3>
-                {% if is_vol%}
-                <a class="btn btn-default" href="{% url 'add_news' %}"><span
-                        class="glyphicon glyphicon-pencil"></span></a>
+                {% if is_vol %}
+                    <a class="btn btn-default" href="{% url 'add_news' %}"><span
+                            class="glyphicon glyphicon-pencil"></span></a>
                 {% endif %}
                 <text>
                     {% for new in news %}
                         <h4>{{ new.headline }}
-                        {% if is_vol%}
-                        <a class="btn btn-default" href="{% url 'edit_news' pk=new.pk %}"><span
-                                class="glyphicon glyphicon-pencil"></span></a>
-                        {% endif %}
+                            {% if is_vol %}
+                                <a class="btn btn-default" href="{% url 'edit_news' pk=new.pk %}"><span
+                                        class="glyphicon glyphicon-pencil"></span></a>
+                            {% endif %}
                         </h4>
                         <h6>{{ new.message }}</h6>
                         <h8>{{ new.date }}</h8>
                     {% endfor %}
                 </text>
 
-                {#                </div>#}
-                {#                <div class="colum-2">#}
-                {##}
-                {##}
-                {#                </div>#}
-                {#                <div class="colum-2" style="text-align: left;">#}
-                {#                    <ul class="sidebar-nav">#}
-                {#                        <h3>Объявления</h3>#}
-                {#                        <li><a> </a></li>#}
-                {#                        <li><a href="">All books</a></li>#}
-                {#                        <li><a href="">All authors</a></li>#}
-                {#                    </ul>#}
-                {#                </div>#}
             </div>
         </div>
     </section>

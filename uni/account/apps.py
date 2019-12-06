@@ -1,7 +1,5 @@
 import os
-
 from django.apps import AppConfig
-
 from uni.settings import BASE_DIR
 
 

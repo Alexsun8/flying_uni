@@ -1,11 +1,6 @@
 from django.db import models
-
 from django.contrib.auth.models import User, Group
 from core.models import Course
-
-
-# from phone_field import PhoneField
-# Create your models here.
 
 
 class Profile(models.Model):
@@ -26,16 +21,11 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-
     def is_volunteer(self):
         vols = Group.objects.get(name="Volunteers").user_set.all()
         rectors = Group.objects.get(name="Rectors").user_set.all()
-        # print("Vols: ", vols)
-        # print("Rectors: ", rectors)
-        # print("User ", self.user.username )
         if self.user in vols:
             return True
         if self.user in rectors:
             return True
         return False
-
