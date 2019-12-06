@@ -1,6 +1,6 @@
 #Подвесной университет
 
-![(https://github.com/hardenchant/learn_django/blob/develop/uni/account/static/images/logo.png)
+![Alt-текст](https://github.com/hardenchant/learn_django/blob/develop/uni/account/static/images/logo.png)
 
 
 **Table of Contents**
