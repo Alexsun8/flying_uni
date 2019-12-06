@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     {% load static %}
-    <link rel="icon" type="image/png" href="{% static "registration/images/icons/favicon.ico" %}"/>
+    <link rel="icon" type="image/png" href="{% static "registration/images/icons/logo.ico" %}"/>
     <!--===============================================================================================-->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "registration/vendor/bootstrap/css/bootstrap.min.css" %}">
@@ -44,13 +44,6 @@
 					<span class="login100-form-title">
 						Авторизация
 					</span>
-                {#                {% if next %}#}
-                {#                    <form action="/login/&next = {{ next }}" method="post">#}
-                {#                {% else %}#}
-                {#                    <form action="/login/" method="post">#}
-                {#                {% endif %}#}
-                {#                {% csrf_token %}#}
-                {#                {{ form }}#}
                 <div class="wrap-input100 validate-input" data-validate="Valid username">
                     <input class="input100" type="text" name="username" placeholder="Username">
                     <span class="focus-input100"></span>
@@ -72,16 +65,6 @@
                         Отправить
                     </button>
                 </div>
-
-{#                <div class="text-center p-t-12">#}
-{#						<span class="txt1">#}
-{#							Забыли#}
-{#						</span>#}
-{#                    <a class="txt2" href="#">#}
-{#                        Логин / Пароль?#}
-{#                    </a>#}
-{#                </div>#}
-
                 <a class="txt2" href="{% url "sign_up" %}">
                     <div class="text-center p-t-136">
                         Создать аккаунт
@@ -120,21 +103,3 @@
 </body>
 </html>
 
-
-{#{% extends 'dappx/base.html' %}#}
-{#{% block body_block %}#}
-{#  <div class="container">#}
-{#    <div class="jumbotron">#}
-{#      <h1>Login here :</h1>#}
-{#<form method="post" action="{% url 'dappx:user_login' %}">#}
-{#          {% csrf_token %}#}
-{# A more "HTML" way of creating the login form#}
-{#          <label for="username">Username:</label>#}
-{#          <input type="text" name="username" placeholder="Username">#}
-{#<label for="password">Password:</label>#}
-{#          <input type="password" name="password" placeholder="Password">#}
-{#<input type="submit" name="" value="Login">#}
-{#</form>#}
-{#</div>#}
-{#  </div>#}
-{#{% endblock %}#}
