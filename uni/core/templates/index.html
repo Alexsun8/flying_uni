@@ -1,62 +1,109 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% block css_file %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static "css/index.css" %}">
+{% endblock %}
+{% block script_js %}{% endblock %}
 
-    <title>Hello, world!</title>
-</head>
-<body>
-
-<div class="container">
+{% block up %}
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
-            <h1>Курсы</h1>
+        <div class="col-md-12 text-center" style="font-family: 'Philosopher', sans-serif; margin-top: 7%">
+            <h1>{{ title }}
+                {% if active %}
+                    <a href="{% url 'add_course' %}">
+                        <botton type="button" role="button" class="btn btn-outline-secondary">Добавить
+                            новый курс
+                        </botton></a>
+                {% endif %}
 
-            <table border="1" class="table table-dark">
-                <thead>
-                <tr>
-                    <th scope="col">Название</th>
-                    <th scope="col">Статус</th>
-                    <th scope="col">Место</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for course in courses %}
-                <tr>
-                    <td>{{ course.name }}</td>
-                    <td>{{ course.status }}</td>
-                    <td>{{ course.location }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-
-            </table>
-
+                {% if stu or wi %}
+                    <a href="{% url 'index' %}">
+                        <botton type="button" role="button" class="btn btn-outline-secondary">Выбрать
+                            курс среди существующих
+                        </botton>
+                    </a>
+                {% endif %}
+            </h1>
+            {% if domain %}
+                <h3>Категории: {{ dom }}</h3>
+            {% endif %}
+            {% if type %}
+                <h3>Подкатегории: {{ type }}</h3>
+            {% endif %}
         </div>
-        <div class="col-2"></div>
+    </div>
     </div>
 
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-right" style="font-family: 'Philosopher', sans-serif; margin-top: 1%">
+            {#        {{  }}#}
+        </div>
+        {% if index %}
 
-</div>
+
+            <div class="dropdown" style="margin-bottom: 1%;margin-left: 70%; margin-right: 2%;">
+                <button class="dropbtn">Категория</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'index_with_domain' num=0 %}">Творчество</a>
+                    <a href="{% url 'index_with_domain' num=1 %}">Рукоделие</a>
+                    <a href="{% url 'index_with_domain' num=2 %}">Технические</a>
+                    <a href="{% url 'index_with_domain' num=3 %}">Химбио</a>
+                    <a href="{% url 'index_with_domain' num=4 %}">Гуманитарные</a>
+                    <a href="{% url 'index_with_domain' num=5 %}">Другое</a>
+                </div>
+            </div>
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+            {% if domain %}
+                <div class="dropdown" style="margin-bottom: 1%; margin-right: 2%;">
+                    <button class="dropbtn">Подкатегория</button>
+                    <div class="dropdown-content">
+                        {% for t in types %}
+                            <a href="{% url 'index_with_types' pk=t.pk %}">{{ t }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block content_main %}
+    <table>
+        <thead>
+        <tr>
+            <th>Название курса
+            <th>Статус
+            <th>Дата начала занятий
+            <th>Преподаватль
+            <th>Категория
+            <th>Подкатегория
+        </thead>
+        <tbody>
+        {% for course in courses %}
+            {% if course.status == "done" %}
+                <tr>
+                    <td><a href="{% url 'course_page' pk=course.pk %}"> {{ course.name }}</a>
+                    <td>{{ course.status }}
+                    <td>{{ course.date }}
+                        {% else %}
+                <tr class="disabled">
+                <td><a href="{% url 'course_page' pk=course.pk %}">{{ course.name }}</a>
+                <td>{{ course.status }}
+                <td> ---
+            {% endif %}
+        {% if course.has_teacher %}
+            <td>{{ course.teacher.last_name }}
+                {% else %}
+            <td> ---
+        {% endif %}
+            <td> {{ course.type.domain }}
+            <td> {{ course.type }}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

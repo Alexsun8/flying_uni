@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% block css_file %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/course.css" %}">
+    <style>
+        body::before {
+            content: '';
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            background-image: url(http://www.gandex.ru/upl/oboi/gandex.ru-19837_cd7c2f4c95580bc64b07e86d4e17b236.jpg);
+            filter: blur(5px);
+        }
+    </style>
+{% endblock %}
+{% block script_js %}
+    {% load static %}
+    <script src="{% static 'js/course.js' %}"></script>
+{% endblock %}
+
+{% block content_main %}
+    <div class="wrapper">
+        <div class="title" style="margin-top: 3%;margin-bottom: 1%; margin-left: 4%; margin-right: 4%;">
+            <h1>{{ course.name }}
+                {% if is_pres %}
+                    <a class="btn btn-default" href="{% url 'edit_course' pk=course.pk %}"><span
+                            class="glyphicon glyphicon-pencil"></span></a>
+                {% endif %}
+            </h1>
+        </div>
+        <div class="status" style="margin-top: 3%;margin-bottom: 1%; margin-left: 4%; margin-right: 4%;">
+            <h2>Категория: </h2>
+            <h3>{{ course.type.domain }}</h3>
+            <h2>Подкатегория: </h2>
+            <h3>{{ course.type }}</h3>
+            <h2>Статус: </h2>
+            <h3>{{ course.status }}</h3>
+            {% if course.location %}
+                <h2>Место проведения: </h2>
+                <h3>{{ course.location }}</h3>
+            {% else %}
+                {% if active %}
+                    <h2>Место проведения: </h2>
+                    <a href="{% url 'add_location' %}">
+                        <button type="button" class="btn btn-outline-warning">Предложить локацию
+                        </button>
+                    </a>
+                {% endif %}
+            {% endif %}
+
+            {% if course.group_president %}
+                <h2>Староста:</h2>
+                <h3>{{ course.group_president.first_name }} {{ course.group_president.last_name }}  </h3>
+                {% if is_stu %}
+                    <h2>Контакты старосты: </h2>
+                    <h3>{{ course.group_president.profile.contact }}</h3>
+                {% endif %}
+            {% endif %}
+
+
+            {% if course.teacher %}
+                <h2>Учитель: </h2>
+                <h3>{{ course.teacher.first_name }} {{ course.teacher.last_name }}</h3>
+                {% if is_pres %}
+                    <h2>Контакты учителя: </h2>
+                    <h3>{{ course.teacher.profile.contact }}</h3>
+                {% endif %}
+            {% endif %}
+        </div>
+
+
+        {% if active %}
+            <div class="bottoms" style="margin-top: 1%;margin-bottom: 1%; margin-left: 4%; margin-right: 4%;">
+                <div>
+                    {% if  user in wish_list %}
+                        <a href="{% url 'delete_from_wish' pk=course.pk %}">
+                            <button type="button" class="btn btn-dark">Убрать из списка желаний</button>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'add_to_wish' pk=course.pk %}">
+                            <button type="button" class="btn btn btn-warning">
+                                Добавить в список желаний
+                            </button>
+                        </a>
+                    {% endif %}
+                </div>
+                <div>
+
+                </div>
+                <div>
+                    {% if user in stu_list %}
+                        <a href="{% url 'delete_from_stud' pk=course.pk %}">
+                            <button type="button" class="btn btn-primary-dark">Я больше не хочу ходить на этот курс
+                            </button>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'add_to_stud' pk=course.pk %}">
+                            <button type="button" class="btn btn-success" href="#">Поступить на курс</button>
+                        </a>
+                    {% endif %}
+                </div>
+
+                <div>
+
+                </div>
+
+                <div>
+                    {% if user in know_list %}
+                        <a href="{% url 'delete_from_know' pk=course.pk %}">
+                            <button type="button" class="btn btn-dark" href="#">Я не знаю на самом деле этот курс
+                            </button>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'add_to_know' pk=course.pk %}">
+                            <button type="button" class="btn btn-info" href="#">Я знаю этот курс</button>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+
+
+        <div class="info" style="margin-top: 1%;margin-bottom: 4%; margin-left: 4%; margin-right: 4%; font-size: 200%;">
+
+            <h2>Описание курса и важна информация: </h2>
+            <h3>{{ course.information }}</h3>
+
+        </div>
+
+        {% if is_pres %}
+            <div class="for_vol" style="margin-top: 1%;margin-bottom: 4%; margin-left: 4%; margin-right: 4%;">
+                <h2>Cписок студентов: </h2>
+                {% for stu in stu_list %}
+                    <h3>ФИ: {{ stu.first_name }} {{ stu.last_name }} Имя пользователя: {{ stu }}
+                        Контакты: {{ stu.profile.contact }}</h3>
+                {% endfor %}
+
+
+
+
+                <h2>Добавлено в желаемое: </h2>
+                {% for stu in wish_list %}
+                    <h3>ФИ: {{ stu.first_name }} {{ stu.last_name }} Имя пользователя: {{ stu }}
+                        Контакты: {{ stu.profile.contact }}</h3>
+                {% endfor %}
+
+
+
+
+
+                <h2>Знают: </h2>
+                {% for stu in know_list %}
+                    <h3>ФИ: {{ stu.first_name }} {{ stu.last_name }} Имя пользователя: {{ stu }}
+                        Контакты: {{ stu.profile.contact }}</h3>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

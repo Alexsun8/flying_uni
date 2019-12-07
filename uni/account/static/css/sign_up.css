@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700|Arsenal:400,700|Caveat:400,700|Gabriela|IBM+Plex+Mono:400,500,600,700|Neucha|Philosopher:400,700|Poiret+One&display=swap&subset=cyrillic,cyrillic-ext,latin-ext');
+
+
+body, html {
+
+    font-family: 'Philosopher', sans-serif;
+    background-image: linear-gradient(135deg, rgba(52, 152, 219, 0.9) 0%, rgba(243, 65, 65, 0.8) 100%), url('https://i.imgur.com/ZWeegbh.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.title {
+    display: inline-block;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    font-family: 'Philosopher', sans-serif;
+    transform: translate(-50%, -50%);
+    border: 4px solid rgba(94, 22, 83, 0.92);
+    padding: 20px;
+    background: linear-gradient(45deg, rgba(103, 17, 78, 0.8), rgba(163, 89, 141, 0.73));
+    border-radius: 8%;
+}
+
+
+.bottoms {
+    display: inline-block;
+    border: 4px solid rgba(0, 20, 94, 0.92);
+    padding: 20px;
+    background: linear-gradient(45deg, rgba(157, 162, 32, 0.67), rgba(152, 163, 29, 0.73));
+    border-radius: 8%;
+}
+
+.pad {
+    text-align: center;
+    margin-top: 2%
+}
+
+.container_main {
+    display: inline-block;
+    padding: 20px;
+    border: 4px solid rgba(220, 204, 255, 0.69);
+    background: #ffffff00;
+    text-align: left;
+    font-family: 'Philosopher', sans-serif;
+
+}
+
+h1 {
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Philosopher', sans-serif;
+
+}
+
+h3 {
+    text-align: center;
+    font-size: large;
+    font-family: 'Philosopher', sans-serif;
+}
+
+
+

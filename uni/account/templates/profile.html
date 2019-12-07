@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" media="all" href={% static "css/profile.css" %}>
+    <title>Flying university</title>
+</head>
+<main>
+    <ul class="social">
+
+        <li class="home"><a href="{% url 'home' %}" class=" entypo-home">
+        </a>
+        </li>
+
+
+    </ul>
+    <h1>{{ user.first_name }} {{ user.last_name }}
+    </h1>
+    <div class="bio">{{ user.profile.bio }}</div>
+    <div class="container">
+
+        <ul class="social">
+
+            <li class="teach"><a href="{% url "teach_profile" %}" class="entypo-feather" data-toggle="tooltip"
+                                 data-placement="top"
+                                 title="Преподаваемые/Курируемые"></a></li>
+            <li class="stud"><a href="{% url "stud_profile" %}" class="entypo-graduation-cap" data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Изучаемые"></a></li>
+            <li class="wish"><a href="{% url "wish_profile" %}" class="entypo-heart" data-toggle="tooltip"
+                                data-placement="top"
+                                title="Желаемые"></a></li>
+            <li class="logout"><a href="{% url 'logout' %}" class="entypo-logout" data-toggle="tooltip"
+                                  data-placement="bottom" title="Logout"></a></li>
+            {#            <li class="settings"><a href="#" class="entypo-mail" data-toggle="tooltip"#}
+            <li class="settings"><a href="{% url 'settings_profile' %}" class="entypo-cog" data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Настройки"></a></li>
+        </ul>
+
+    </div>
+</main>
+
+</html>

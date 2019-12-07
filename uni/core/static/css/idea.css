@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700|Arsenal:400,700|Caveat:400,700|Gabriela|IBM+Plex+Mono:400,500,600,700|Neucha|Philosopher:400,700|Poiret+One&display=swap&subset=cyrillic,cyrillic-ext,latin-ext');
+
+/*
+
+    font-family: 'Caveat', cursive;
+
+    font-family: 'Poiret One', cursive;
+
+    font-family: 'Neucha', cursive;
+
+    font-family: 'Philosopher', sans-serif;
+
+    font-family: 'Anonymous Pro', monospace;
+
+    font-family: 'Arsenal', sans-serif;
+
+    font-family: 'IBM Plex Mono', monospace;
+
+*/
+
+
+html,
+body,
+header {
+  height: 100%;
+background: rgba(193, 255, 213, 0.36);
+    font-size: 120%;
+      font-family: 'Philosopher', sans-serif;
+
+}
+
+
+.view{height: 100%;
+    top: 400px;
+    left: 50%;
+    font-size: 250%;
+    font-family: 'Philosopher', sans-serif;
+}
+
+
+@media (max-width: 740px) {
+  html,
+  body,
+  header {
+    height: 100vh;
+      font-family: 'Philosopher', sans-serif;
+
+background: rgba(193, 255, 213, 0.36);
+    font-size: 120%;
+  }
+
+  .view{height: 100%    ;
+      font-family: 'Philosopher', sans-serif;
+position: absolute;
+    font-size: 250%;
+    transform: translate(-50%, -50%)
+  }
+
+
+.name{
+margin-top: 300px;
+}
+}
+
+.name{
+margin-top: 300px;
+}
+
+@media (max-width: 991px) {
+
+.h1 {
+  letter-spacing: 8px;
+position: absolute;
+    top: 400px;
+    left: 50%;
+    margin-right: -50%;
+    font-size: 250%;
+    transform: translate(-50%, -50%)
+}
+
+.h5 {
+  letter-spacing: 3px;
+        font-size: 100%;
+}
+
+.hr-light {
+  border-top: 3px solid #daeaff;
+  width: 80px;
+    font-size: 150%;
+}
+
+
+
+ .row>div{
+      background-clip: content-box;
+}
+
+ .container {
+    /*  border: 1px dotted #ccc;*/
+}
+
+ .row {
+      /*border: 1px dotted #ccc;*/
+      border-left: 0;
+      border-right: 0;
+}
+
+ .desk{
+     /* Ð¦Ð²ÐµÑ ÑÐ¾Ð½Ð° */
+
+
+     margin-left: 120px;
+     margin-right: 120px;
+     background: #fc3 ;
+     border: 10px solid rgba(90, 2, 12, 0.79);  /* ÐÐ°ÑÐ°Ð¼ÐµÑÑÑ ÑÐ°Ð¼ÐºÐ¸ */
+    padding: 20px; /* ÐÐ¾Ð»Ñ Ð²Ð¾ÐºÑÑÐ³ ÑÐµÐºÑÑÐ° */
+     color: darkmagenta;
+    font-size: 150%;
+ }
+
+ .column-1 {
+    width: 6.86666666667%;
+}
+
+.column-2 {
+    width: 15.3333333333%;
+}
+
+.column-3 {
+    width: 23.8%;
+}
+
+.column-4 {
+    width: 32.2666666667%;
+}
+
+.column-5 {
+    width: 40.7333333333%;
+}
+
+.column-6 {
+    width: 49.2%;
+}
+
+.column-7 {
+    width: 57.6666666667%;
+}
+
+.column-8 {
+    width: 66.1333333333%;
+}
+
+.column-9 {
+    width: 74.6%;
+}
+
+.column-10 {
+    width: 83.0666666667%;
+}
+
+.column-11 {
+    width: 91.5333333333%;
+}
+
+.column-12 {
+    width: 100%;
+    margin-left: 0;
+}
+
+
+@media only screen and (max-width: 550px) {
+    .column-1,
+    .column-2,
+    .column-3,
+    .column-4,
+    .column-5,
+    .column-6,
+    .column-7,
+    .column-8,
+    .column-9,
+    .column-10,
+    .column-11,
+    .column-12 {
+        float: none;
+        width: auto;
+    }
+
+    .column + .column {
+        margin-left: 0;
+    }
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    font-size: 100%;
+    list-style: none;
+}}

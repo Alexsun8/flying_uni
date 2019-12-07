@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" xmlns="http://www.w3.org/1999/html">
+    <style type="text/css">
+        .top-nav-collapse {
+            background-color: #fff5b5 !important;
+            font-family: 'Caveat', cursive;
+            color: rgba(209, 39, 219, 0.67);
+        }
+      .navbar:not(.top-nav-collapse) {
+            background: transparent !important;
+            font-family: 'Caveat', cursive;
+            color: rgba(209, 39, 219, 0.67);
+            font-size: 160%;
+        }
+    </style>
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"><strong>
+            Количество запущенных курсов:
+            {{ count }}</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+                aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'idea' %}">Idea</a>
+                </li>
+                <li class="nav-item">
+                 </li>
+            </ul>
+            <form class="form-inline">
+                <div class="md-form my-0">
+                    <ul class="navbar-nav mr-auto">
+                        {% if active %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'profile' %}">Profile<span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="modal" data-target="#myModal">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'sign_in' %}">Sign in<span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'sign_up' %}">Sign up</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="color: #1abc9c; margin-left: 1%" id="myModalLabel">Logout</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #1abc9c;">
+                Вы хотите выйти?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Назад</button>
+                <a href="{% url 'logout' %}">
+                    <button type="button" class="btn btn-primary">Выйти</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

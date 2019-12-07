@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+{% block css_file %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/sign_up.css" %}">
+{% endblock %}
+
+{% block content_head %}
+{% if active %}
+    <h1 style="margin-top: 6%;">Редактирование профиля</h1>
+    <h3>Отредактируйте те формы, которые Вас не устраивают</h3>
+{% else %}
+    <h1 style="margin-top: 6%;">Регистрация</h1>
+    <h3>Заполните, пожалуйста, все формы</h3>
+{% endif %}
+{% endblock  %}
+{% block content_main %}
+    <div class="pad">
+        <div class="container_main">
+
+            <form method="POST" class="post-form">{% csrf_token %}
+                <form enctype="multipart/form-data" method="POST" class="form-inline">
+                    {{ user_form.as_p }}
+                    {{ profile_form.as_p }}
+                    {% if active %}
+                        <button type="submit" class="save btn btn-outline-light">Сохранить</button>
+                    {% else %}
+                        <button type="submit" class="save btn btn-outline-light">Зарегистрироваться</button>
+                    {% endif %}
+                </form>
+            </form>
+        </div>
+    </div>
+{% endblock %}
