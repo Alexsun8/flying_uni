@@ -1,6 +1,6 @@
 django
 psycopg2-binary
-Pillow==2.9.0
+Pillow==10.0.1
 django-bootstrap3
 django-rest
 rest-framework-simplejwt
